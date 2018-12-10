@@ -1,0 +1,186 @@
+#main-block .book-info {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#main-block .book-info .book-title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#main-block .book-info .book-title-and-author {
+    margin: 0 0 20px;
+}
+
+#main-block .book-info .book-author {
+    font-size: 18px;
+}
+
+#main-block .book-info .book-author a {
+    color: #424a52;
+}
+
+#main-block .book-details {
+    padding-left: 30px;
+}
+
+#main-block .book-details .book-detail {
+    font-size: 18px;
+}
+
+#main-block .book-details .book-detail p {
+    margin-bottom: 10px;
+}
+
+#main-block .book-details .book-detail p:first-child {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#main-block .book-details .book-price {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+#main-block .book-details .buy {
+    margin-top: 20px;
+}
+
+#main-block .book-details .buy .btn {
+    padding: 6px 30px;
+    font-size: 20px;
+}
+
+#nav-description-tab,
+#nav-review-tab {
+    font-size: 18px;
+    color: #343a40;
+}
+
+#nav-description-tab.active,
+#nav-review-tab.active {
+    color: #495057;
+    background-color: #f2f2f2;
+    border-bottom-color: #f2f2f2;
+}
+
+#nav-tabContent {
+    background-color: #f2f2f2;
+    padding: 20px 30px;
+}
+
+#main-block .book-description-and-reviews {
+    margin-bottom: 20px;
+}
+
+#main-block .book-description-and-reviews .review-item {
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#main-block .book-description-and-reviews .review-item:last-child {
+    margin-bottom: 0;
+}
+
+#main-block .book-description-and-reviews .review-item.positive {
+    border: 1px solid #28a745;
+}
+
+#main-block .book-description-and-reviews .review-item.negative {
+    border: 1px solid #dc3a3a;
+}
+
+#main-block .book-description-and-reviews .review-item.positive .mark {
+    background-color: #28a745;
+}
+
+#main-block .book-description-and-reviews .review-item.negative .mark {
+    background-color: #dc3a3a;
+}
+
+#main-block .book-description-and-reviews .review-item .thumb {
+    max-width: 25px;
+    margin: 5px 10px;
+    display: inline-block;
+    border-radius: 30px;
+    box-shadow: 0 0 20px 2px #ddd;
+}
+
+#main-block .book-description-and-reviews .review-item .date {
+    margin: 0 10px;
+}
+
+
+#main-block .book-description-and-reviews .review-item .date .date-text {
+    font-size: 16px;
+    color: #fff;
+
+}
+
+#main-block .book-description-and-reviews .review-item .avatar-and-content .user-avatar .image {
+    width: 135px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+#main-block .book-description-and-reviews .review-item .review-content {
+    padding: 20px 20px 10px 0;
+}
+
+#main-block .book-description-and-reviews .review-item .review-content .user-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #494949;
+    margin-bottom: 10px;
+}
+
+#main-block .book-description-and-reviews .add-review {
+    margin-top: 40px;
+}
+
+#main-block .book-description-and-reviews .add-review.zero {
+    margin-top: 0px;
+}
+
+/* Media Queries */
+
+@media all and (max-width: 991px) {
+
+    .container {
+        max-width: 100%;
+    }
+
+    #main-block .book-cover {
+        flex: 0 0 280px;
+        max-width: 280px;
+    }
+}
+
+@media all and (max-width: 767px) {
+    #main-block .book-cover {
+        flex: 0 0 auto;
+        max-width: 260px;
+        margin: auto;
+        padding: 0;
+    }
+    #main-block .book-details {
+        margin-top: 20px;
+        padding-left: 15px;
+    }
+}
+
+@media all and (max-width: 599px) {
+    #main-block .book-description-and-reviews .review-item .avatar-and-content {
+        -ms-flex-direction: column!important;
+        flex-direction: column!important;
+    }
+    #main-block .book-description-and-reviews .review-item .review-content {
+        padding: 20px 20px 5px 15px;
+    }
+}
+
+@media all and (max-width: 449px) {
+    #main-block .book-info .book-title {
+        font-size: 25px;
+    }
+}

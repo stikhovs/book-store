@@ -1,0 +1,46 @@
+* {
+    font-family: 'Open Sans';
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.grey-color {
+    color: #6d6d6d;
+}
+
+.white-color {
+    color: #fff;
+}
+
+.dark-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.book-in-cart-btn {
+    background-color: #4993da;
+    border-color: #356b9e;
+    color: #fff;
+}
+
+button:focus {
+	outline: none;
+}
+
+.form-control:focus {
+	border-color: #ced4da;
+	box-shadow: none;	
+}
+
+#signInModal .form-body input#inputEmail {
+	margin: 0 0 10px 0;
+}

@@ -1,0 +1,25 @@
+footer {
+    margin: 0 -15px;
+}
+
+footer .navbar {
+    padding: 15px 20px;
+}
+
+footer .navbar li.dropup {
+    display: none;
+}
+
+footer .navbar .dropdown-menu .nav-link {
+    color: #343a40;
+    padding: 10px 20px;
+}
+
+footer .navbar .dropdown-menu .dropdown-item {
+    padding: 0;
+}
+
+footer .navbar .dropdown-menu .nav-link:hover {
+    color: #000;
+    background: #d4d4d4;
+}

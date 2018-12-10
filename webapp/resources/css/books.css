@@ -1,0 +1,264 @@
+#main-block {
+    margin-top: 20px;
+    position: relative;
+}
+
+#main-block .categories-title-text {
+    font-size: 25px;
+    padding-top: 0px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+
+}
+
+#main-block .categories {
+    margin-bottom: 20px;
+}
+
+#main-block .categories .categories-list .list-group-item.active {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#92d774+0,7ab361+100 */
+    background: #92d774;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #92d774 0%, #7ab361 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #92d774 0%, #7ab361 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #92d774 0%, #7ab361 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#92d774', endColorstr='#7ab361', GradientType=0);
+    /* IE6-9 */
+    color: #fff;
+    border-color: #7ab361;
+}
+
+#main-block .categories .categories-list .list-group-item.active:hover {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#92d774+0,7ab361+100 */
+    background: #92d774;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #92d774 0%, #7ab361 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #92d774 0%, #7ab361 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #92d774 0%, #7ab361 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#92d774', endColorstr='#7ab361', GradientType=0);
+    /* IE6-9 */
+}
+
+#main-block .categories .categories-list .list-group-item {
+    display: block;
+    height: 100%;
+    padding: 10px 20px;
+    color: #5b5b5b;
+}
+
+#main-block .categories .categories-list .list-group-item.main-category {
+    font-weight: bold;
+}
+
+#main-block .categories .categories-list .list-group-item:hover {
+    text-decoration: none;
+    color: #424242;
+    background-color: #ececec;
+}
+
+#main-block .categories .categories-list .list-group-item.active:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+#main-block .categories .categories-list .inner-category .list-group-item {
+    font-size: 15px;
+    padding: 5px 10px 5px 25px;
+    color: #5b5b5b;
+}
+
+#main-block .categories .categories-list .inner-category .list-group-item:hover {}
+
+#main-block .categories .categories-list .inner-category .list-group-item.active {
+    color: #424242;
+    background: #ececec;
+    border-color: #b6b6b6;
+}
+
+
+
+#main-block .books .sort-block {
+    margin-top: 10px;
+    max-width: 200px;
+}
+
+#main-block .books .sort-block .form-control:focus {
+    border-color: #b6b6b6;
+    outline: 0;
+    box-shadow: none;
+}
+
+
+
+#main-block .books-list {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+#main-block .books-list .book-item {
+    width: 300px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+
+#main-block .books-list .card {
+    height: 100%;
+}
+
+#main-block .books-list .card .card-footer a:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+#main-block .books-list .card .image img {
+    box-shadow: -1px 3px 13px 0px #000000;
+    transition-duration: 0.3s;
+    max-height: 310px;
+}
+
+#main-block .books-list .card .card-body:hover .image img {
+    transform: rotate(1deg);
+    -webkit-transform: rotate(1deg);
+    -webkit-backface-visibility: hidden;
+}
+
+#main-block .books-list .card .author-name {
+    font-size: 12px;
+    color: #797d85;
+}
+
+#main-block .books-list .card .title-link {
+    font-size: 14px;
+    color: #6c757d;
+    font-weight: bold;
+}
+
+#main-block .books-list .card .price p {
+    margin: 0 0 15px;
+    font-size: 18px;
+}
+
+#main-block .books-list .card .buy {
+    margin-top: 10px;
+}
+
+
+#main-block .books-list .card .book-stickers {
+    margin: 0;
+    white-space: normal;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.stickers-item {
+    float: left;
+    clear: both;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 10px;
+}
+
+.stickers-item .label {
+    color: #fff;
+    padding: 0 15px;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-bottom-right-radius: 10px;
+    -moz-border-top-right-radius: 10px;
+}
+
+.stickers-item .label:first-child {
+    margin-bottom: 5px;
+}
+
+.stickers-item .label .label-text {
+    margin: 3px;
+}
+
+.label_new {
+    background-color: #17ae2c;
+}
+
+.label_best {
+    background-color: #3a75ae;
+}
+
+
+#books-pagination {
+    margin-right: 15px;
+}
+
+#books-pagination .page-link {
+    color: #343a40;
+}
+
+#books-pagination .page-link:focus {
+    box-shadow: none;
+}
+
+#books-pagination .page-item.active .page-link {
+    background-color: #28a745;
+    border-color: #1d7932;
+    color: #fff;
+}
+
+
+
+@media all and (max-width: 1549px) {
+    #main-block .books-list {
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+}
+
+@media all and (max-width: 1399px) {
+    #main-block .categories {
+        position: absolute;
+        z-index: 2;
+        background: white;
+        max-width: 310px;
+        left: -320px;
+        top: 60px;
+        padding-bottom: 10px;
+        transition-duration: 0.5s;
+        box-shadow: 1px 0px 3px 0px #8f8f8f;
+    }
+    #main-block .books {
+        max-width: 90%;
+        -ms-flex: 0 0 90%;
+        flex: 0 0 90%;
+    }
+}
+
+@media all and (max-width: 929px) {
+    #main-block {
+        margin-top: 10px;
+    }
+    #main-block .books {
+        max-width: 100%;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+    }
+}
