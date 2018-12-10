@@ -31,7 +31,6 @@ import data.entities.User;
 import data.repositories.CartRepository;
 import data.repositories.UserRepository;
 import data.services.UserService;
-import javafx.scene.image.Image;
 
 @Controller
 @PropertySource("classpath:img.properties")
