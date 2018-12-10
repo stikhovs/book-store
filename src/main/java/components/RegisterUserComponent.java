@@ -16,26 +16,26 @@ import org.springframework.web.multipart.MultipartFile;
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class RegisterUserComponent {
 
-	@NotEmpty(message = "Имя не может быть пустым")
-	@Pattern(regexp = "[\\D]+", message = "Поле должно содержать только буквы")
+	@NotEmpty(message = "РРјСЏ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј")
+	@Pattern(regexp = "[\\D]+", message = "РџРѕР»Рµ РґРѕР»Р¶РЅРѕ СЃРѕРґРµСЂР¶Р°С‚СЊ С‚РѕР»СЊРєРѕ Р±СѓРєРІС‹")
 	private String firstName;
 	
-	@NotEmpty(message = "Пожалуйста, укажите свою фамилию")
-	@Pattern(regexp = "[\\D]+", message = "Поле должно содержать только буквы")
+	@NotEmpty(message = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СѓРєР°Р¶РёС‚Рµ СЃРІРѕСЋ С„Р°РјРёР»РёСЋ")
+	@Pattern(regexp = "[\\D]+", message = "РџРѕР»Рµ РґРѕР»Р¶РЅРѕ СЃРѕРґРµСЂР¶Р°С‚СЊ С‚РѕР»СЊРєРѕ Р±СѓРєРІС‹")
 	private String lastName;
 	
-	@NotEmpty(message = "Пожалуйста, укажите свой номер телефона")
-	@Pattern(regexp = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$", message = "Пожалуйста, введите номер в верном формате")
+	@NotEmpty(message = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СѓРєР°Р¶РёС‚Рµ СЃРІРѕР№ РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°")
+	@Pattern(regexp = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$", message = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РЅРѕРјРµСЂ РІ РІРµСЂРЅРѕРј С„РѕСЂРјР°С‚Рµ")
 	private String phone;
 	
-	@NotEmpty(message = "Пожалуйста, укажите свой email")
-	@Email (message = "Пожалуйста, укажите email в правильном формате")
+	@NotEmpty(message = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СѓРєР°Р¶РёС‚Рµ СЃРІРѕР№ email")
+	@Email (message = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СѓРєР°Р¶РёС‚Рµ email РІ РїСЂР°РІРёР»СЊРЅРѕРј С„РѕСЂРјР°С‚Рµ")
 	private String email;
 	
-	@NotEmpty(message = "Пароль не может быть пустым")
+	@NotEmpty(message = "РџР°СЂРѕР»СЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј")
 	private String password;
 	
-	@NotEmpty(message = "Пароль не может быть пустым")
+	@NotEmpty(message = "РџР°СЂРѕР»СЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј")
 	private String passwordConfirm;
 
 	private MultipartFile file;

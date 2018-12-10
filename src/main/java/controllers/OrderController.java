@@ -60,7 +60,7 @@ public class OrderController {
 		System.out.println(orderDetails);
 		
 		if(result.hasErrors()) {
-			System.out.println("ОШИБКА В ЗАКАЗЕ");
+			System.out.println("РћРЁРР‘РљРђ Р’ Р—РђРљРђР—Р•");
 			return "order";
 		}
 		
@@ -77,7 +77,7 @@ public class OrderController {
 		System.out.println(orderDetails);
 		
 		
-		// Очистка корзины после оформления заказа
+		// РћС‡РёСЃС‚РєР° РєРѕСЂР·РёРЅС‹ РїРѕСЃР»Рµ РѕС„РѕСЂРјР»РµРЅРёСЏ Р·Р°РєР°Р·Р°
 		Cookie[] cookies = { new Cookie("booksInCart", ""),
 				new Cookie("totalItemsInCart", "0"), new Cookie("totalSum", "0"), };
 

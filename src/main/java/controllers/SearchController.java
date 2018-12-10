@@ -63,15 +63,15 @@ public class SearchController {
 		model.addAttribute("direction", sort.iterator().next().getDirection());			
 
 		Map<String,String> sortMenuItems = new LinkedHashMap<String, String>();
-		sortMenuItems.put("сначала новые", "bookId,asc");
-		sortMenuItems.put("по названию А-Я", "title,asc");
-		sortMenuItems.put("по названию Я-А", "title,desc");
-		sortMenuItems.put("по автору А-Я", "author,asc");
-		sortMenuItems.put("по автору Я-А", "author,desc");
-		sortMenuItems.put("по году выхода (по возрастанию)", "publishYear,asc");
-		sortMenuItems.put("по году выхода (по убыванию)", "publishYear,desc");
-		sortMenuItems.put("по цене (по возрастанию)", "price,asc");
-		sortMenuItems.put("по цене (по убыванию)", "price,desc");
+		sortMenuItems.put("СЃРЅР°С‡Р°Р»Р° РЅРѕРІС‹Рµ", "bookId,asc");
+		sortMenuItems.put("РїРѕ РЅР°Р·РІР°РЅРёСЋ Р°-СЏ", "title,asc");
+		sortMenuItems.put("РїРѕ РЅР°Р·РІР°РЅРёСЋ СЏ-Р°", "title,desc");
+		sortMenuItems.put("РїРѕ Р°РІС‚РѕСЂСѓ Р°-СЏ", "author,asc");
+		sortMenuItems.put("РїРѕ Р°РІС‚РѕСЂСѓ СЏ-Р°", "author,desc");
+		sortMenuItems.put("РїРѕ РіРѕРґСѓ РІС‹С…РѕРґР° (РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ)", "publishYear,asc");
+		sortMenuItems.put("РїРѕ РіРѕРґСѓ РІС‹С…РѕРґР° (РїРѕ СѓР±С‹РІР°РЅРёСЋ)", "publishYear,desc");
+		sortMenuItems.put("РїРѕ С†РµРЅРµ (РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ)", "price,asc");
+		sortMenuItems.put("РїРѕ С†РµРЅРµ (РїРѕ СѓР±С‹РІР°РЅРёСЋ)", "price,desc");
 		
 		model.addAttribute("sortMenuItems",sortMenuItems);
 

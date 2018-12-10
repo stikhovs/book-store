@@ -81,12 +81,12 @@ public class RegistrationController {
 
 		
 		if(userService.findByEmail(newUser.getEmail()) != null) {
-			result.rejectValue("email", "userAlreadyExists", "Ïîëüçîâàòåëü ñ òàêèì e-mail óæå ñóùåñòâóåò");
+			result.rejectValue("email", "userAlreadyExists", "ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ Ñ Ñ‚Ð°ÐºÐ¸Ð¼ e-mail ÑƒÐ¶Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚");
 		}
 		
 		if (!newUser.getPassword().equals(newUser.getPasswordConfirm())) {
-			result.rejectValue("password", "passwordNoMatch", "Ïàðîëè íå ñîâïàäàþò");
-			result.rejectValue("passwordConfirm", "passwordNoMatch", "Ïàðîëè íå ñîâïàäàþò");
+			result.rejectValue("password", "passwordNoMatch", "ÐŸÐ°Ñ€Ð¾Ð»Ð¸ Ð½Ðµ ÑÐ¾Ð²Ð¿Ð°Ð´Ð°ÑŽÑ‚");
+			result.rejectValue("passwordConfirm", "passwordNoMatch", "ÐŸÐ°Ñ€Ð¾Ð»Ð¸ Ð½Ðµ ÑÐ¾Ð²Ð¿Ð°Ð´Ð°ÑŽÑ‚");
 		}
 		
 		MultipartFile myFile = newUser.getFile();
@@ -121,10 +121,10 @@ public class RegistrationController {
 				
 			}
 			catch (ClassCastException e) {
-				result.rejectValue("file", "file.not.image", "Ôàéë íå ÿâëÿåòñÿ èçîáðàæåíèåì");
+				result.rejectValue("file", "file.not.image", "Ð¤Ð°Ð¹Ð» Ð½Ðµ ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸ÐµÐ¼");
 			}
 			catch (MaxUploadSizeExceededException e) {
-				result.rejectValue("file", "file.to.big.size", "Ðàçìåð ôàéëà íå äîëæåí ïðåâûøàòü 1 Mb");
+				result.rejectValue("file", "file.to.big.size", "Ð Ð°Ð·Ð¼ÐµÑ€ Ñ„Ð°Ð¹Ð»Ð° Ð½Ðµ Ð´Ð¾Ð»Ð¶ÐµÐ½ Ð¿Ñ€ÐµÐ²Ñ‹ÑˆÐ°Ñ‚ÑŒ 1 Mb");
 			}
 		}
 		else {
@@ -135,7 +135,7 @@ public class RegistrationController {
 		
 		
 		if (result.hasErrors()) {
-			System.out.println("îøèáêà");
+			System.out.println("Ð¾ÑˆÐ¸Ð±ÐºÐ°");
 			result.getAllErrors().forEach(e -> System.out.println(e));
 			System.out.println("newUser: " + newUser);
 

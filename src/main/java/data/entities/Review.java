@@ -13,10 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import data.services.UserService;
-
 @Entity
 @Table (name = "reviews")
 public class Review {
@@ -27,7 +23,7 @@ public class Review {
 	private long reviewId;
 
 	@Column(name = "ReviewText")
-	@NotEmpty(message = "Пожалуйста, оставьте свой отзыв")
+	@NotEmpty(message = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РѕСЃС‚Р°РІСЊС‚Рµ СЃРІРѕР№ РѕС‚Р·С‹РІ")
 	private String  reviewText;
 
 	@Column(name = "BookID")
@@ -117,7 +113,7 @@ public class Review {
 
 	
 
-	public Review(long reviewId, @NotEmpty(message = "Пожалуйста, оставьте свой отзыв") String reviewText, long bookId,
+	public Review(long reviewId, @NotEmpty(message = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РѕСЃС‚Р°РІСЊС‚Рµ СЃРІРѕР№ РѕС‚Р·С‹РІ") String reviewText, long bookId,
 			boolean positive, boolean permitted, User user, String reviewDate) {
 		super();
 		this.reviewId = reviewId;

@@ -48,13 +48,13 @@ public class LoginController {
 		
 		if(user.getEmail().isEmpty()) {			
 			System.out.println("EMAIL BLANK");
-			result.rejectValue("email", "email.is.empty", "Это поле не может быть пустым");
+			result.rejectValue("email", "email.is.empty", "Р­С‚Рѕ РїРѕР»Рµ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј");
 		} else
 		if(user.getPassword().isEmpty() || userService.findUserByPassword(user.getPassword()).isEmpty() == true) {
-			result.rejectValue("password", "password.is.empty", "Неверный пароль");
+			result.rejectValue("password", "password.is.empty", "РќРµРІРµСЂРЅС‹Р№ РїР°СЂРѕР»СЊ");
 		} else
 		if(userService.findByEmail(user.getEmail()) == null) {
-			result.rejectValue("email", "no.such.user", "Пользователя с таким email не существует");
+			result.rejectValue("email", "no.such.user", "РџРѕР»СЊР·РѕРІР°С‚РµР»СЏ СЃ С‚Р°РєРёРј email РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
 		}
 		
 		if(result.hasErrors()) {
@@ -75,7 +75,7 @@ public class LoginController {
 			
 			if(!cart.getBooks().equals(currentUser.getBooksInCart())) {
 				
-				System.out.println("Корзины разные");
+				System.out.println("РљРѕСЂР·РёРЅС‹ СЂР°Р·РЅС‹Рµ");
 				String newCart = cart.getBooks() + currentUser.getBooksInCart();
 				cart.setBooks(newCart);
 				

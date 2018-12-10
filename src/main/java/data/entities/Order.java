@@ -23,18 +23,18 @@ public class Order {
 	private long userId;
 	
 	@Column (name = "UserName")
-	@NotEmpty(message = "Имя не может быть пустым")
-	@Pattern(regexp = "[\\D]+", message = "Поле должно содержать только буквы")
+	@NotEmpty(message = "РРјСЏ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј")
+	@Pattern(regexp = "[\\D]+", message = "РџРѕР»Рµ РґРѕР»Р¶РЅРѕ СЃРѕРґРµСЂР¶Р°С‚СЊ С‚РѕР»СЊРєРѕ Р±СѓРєРІС‹")
 	private String userName;
 
 	@Column (name = "UserPhone")
-	@NotEmpty(message = "Пожалуйста, укажите свой номер телефона")
-	@Pattern(regexp = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$", message = "Пожалуйста, введите номер в верном формате")
+	@NotEmpty(message = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СѓРєР°Р¶РёС‚Рµ СЃРІРѕР№ РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°")
+	@Pattern(regexp = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$", message = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РЅРѕРјРµСЂ РІ РІРµСЂРЅРѕРј С„РѕСЂРјР°С‚Рµ")
 	private String userPhone;
 
 	@Column (name = "UserEmail")
-	@NotEmpty(message = "Пожалуйста, укажите свой email")
-	@Email (message = "Пожалуйста, укажите email в правильном формате")
+	@NotEmpty(message = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СѓРєР°Р¶РёС‚Рµ СЃРІРѕР№ email")
+	@Email (message = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СѓРєР°Р¶РёС‚Рµ email РІ РїСЂР°РІРёР»СЊРЅРѕРј С„РѕСЂРјР°С‚Рµ")
 	private String userEmail;
 	
 	@Column (name = "CartID")	
@@ -44,7 +44,7 @@ public class Order {
 	private boolean finished;
 	
 	@Column (name = "Address")
-	@NotEmpty(message = "Пожалуйста, укажите адрес доставки")
+	@NotEmpty(message = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СѓРєР°Р¶РёС‚Рµ Р°РґСЂРµСЃ РґРѕСЃС‚Р°РІРєРё")
 	private String address;
 
 	public long getOrderId() {

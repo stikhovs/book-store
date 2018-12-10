@@ -23,7 +23,7 @@ public class DispatcherServlet extends AbstractAnnotationConfigDispatcherServlet
 		return new String[] { "/" };
 	}
 
-	// Для передачи символов кириллицы через формы
+	// РґР»СЏ РїРµСЂРµРґР°С‡Рё СЃРёРјРІРѕР»РѕРІ РєРёСЂРёР»Р»РёС†С‹ С‡РµСЂРµР· С„РѕСЂРјС‹
 	@Override
 	protected Filter[] getServletFilters() {
 		return new Filter[] { new CharacterEncodingFilter("UTF-8"), new OpenEntityManagerInViewFilter() };
