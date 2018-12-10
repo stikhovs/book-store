@@ -54,19 +54,19 @@ public class CatalogController {
 			case "all":
 				page = service.getAllBooks(pageable);
 				model.addAttribute("page",page);
-				model.addAttribute("showName", "Все книги");
+				model.addAttribute("showName", "Р’СЃРµ РєРЅРёРіРё");
 				break;
 			case "newArrivals":
 				page = service.getNewArrivals(true, pageable);
-				model.addAttribute("showName", "Новинки");
+				model.addAttribute("showName", "РќРѕРІРёРЅРєРё");
 				break;
 			case "bestsellers":
 				page = service.getBestSellers(true, pageable);
-				model.addAttribute("showName", "Бестселлеры");
+				model.addAttribute("showName", "Р‘РµСЃС‚СЃРµР»Р»РµСЂС‹");
 				break;
 			default:
 				page = service.getAllBooks(pageable);
-				model.addAttribute("showName", "Все книги");
+				model.addAttribute("showName", "Р’СЃРµ РєРЅРёРіРё");
 				break;
 			}
 			model.addAttribute("page", page);
@@ -93,15 +93,15 @@ public class CatalogController {
 		model.addAttribute("direction", sort.iterator().next().getDirection());			
 
 		Map<String,String> sortMenuItems = new LinkedHashMap<String, String>();
-		sortMenuItems.put("сначала новые", "bookId,asc");
-		sortMenuItems.put("по названию А-Я", "title,asc");
-		sortMenuItems.put("по названию Я-А", "title,desc");
-		sortMenuItems.put("по автору А-Я", "author,asc");
-		sortMenuItems.put("по автору Я-А", "author,desc");
-		sortMenuItems.put("по году выхода (по возрастанию)", "publishYear,asc");
-		sortMenuItems.put("по году выхода (по убыванию)", "publishYear,desc");
-		sortMenuItems.put("по цене (по возрастанию)", "price,asc");
-		sortMenuItems.put("по цене (по убыванию)", "price,desc");
+		sortMenuItems.put("СЃРЅР°С‡Р°Р»Р° РЅРѕРІС‹Рµ", "bookId,asc");
+		sortMenuItems.put("РїРѕ РЅР°Р·РІР°РЅРёСЋ Рђ-РЇ", "title,asc");
+		sortMenuItems.put("РїРѕ РЅР°Р·РІР°РЅРёСЋ РЇ-Рђ", "title,desc");
+		sortMenuItems.put("РїРѕ Р°РІС‚РѕСЂСѓ Рђ-РЇ", "author,asc");
+		sortMenuItems.put("РїРѕ Р°РІС‚РѕСЂСѓ РЇ-Рђ", "author,desc");
+		sortMenuItems.put("РїРѕ РіРѕРґСѓ РІС‹С…РѕРґР° (РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ)", "publishYear,asc");
+		sortMenuItems.put("РїРѕ РіРѕРґСѓ РІС‹С…РѕРґР° (РїРѕ СѓР±С‹РІР°РЅРёСЋ)", "publishYear,desc");
+		sortMenuItems.put("РїРѕ С†РµРЅРµ (РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ)", "price,asc");
+		sortMenuItems.put("РїРѕ С†РµРЅРµ (РїРѕ СѓР±С‹РІР°РЅРёСЋ)", "price,desc");
 		
 		model.addAttribute("sortMenuItems",sortMenuItems);
 

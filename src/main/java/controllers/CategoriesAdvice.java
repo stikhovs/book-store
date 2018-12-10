@@ -21,11 +21,10 @@ public class CategoriesAdvice {
 	public void showOuterCategories(Model model) {
 		model.addAttribute("outerGenres",repository.getDistinctGenreOne());
 		Map<String, String> firstCategories = new HashMap<String, String>();
-		firstCategories.put("all", "Все книги");
-		firstCategories.put("newArrivals", "Новинки");
-		firstCategories.put("bestsellers", "Бестселлеры");
+		firstCategories.put("all", "Р’СЃРµ РєРЅРёРіРё");
+		firstCategories.put("newArrivals", "РќРѕРІРёРЅРєРё");
+		firstCategories.put("bestsellers", "Р‘РµСЃС‚СЃРµР»Р»РµСЂС‹");
 		model.addAttribute("firstCategories",firstCategories);
-		//System.out.println("Сработало");
 	}
 
 }

@@ -68,28 +68,28 @@ public class CartItemsAdvice {
 			
 			model.addAttribute("user", new User());
 						
-			System.out.println("АНОНИМ Товаров в корзине: " + currentUser.getTotalItemsInCart());
-			System.out.println("АНОНИМ На сумму: " + currentUser.getTotalSum());
-			System.out.println("АНОНИМ Книги: " + currentUser.getBooksInCart());
+			System.out.println("РђРќРћРќРРњ РўРѕРІР°СЂРѕРІ РІ РєРѕСЂР·РёРЅРµ: " + currentUser.getTotalItemsInCart());
+			System.out.println("РђРќРћРќРРњ РќР° СЃСѓРјРјСѓ: " + currentUser.getTotalSum());
+			System.out.println("РђРќРћРќРРњ РљРЅРёРіРё: " + currentUser.getBooksInCart());
 			
 		}
 		else {
 			
-			System.out.println("Пользователь авторизован");
+			System.out.println("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ Р°РІС‚РѕСЂРёР·РѕРІР°РЅ");
 			User user = userService.findUserById(Long.parseLong(userId));
 			Cart cart = cartService.findCartByUserId(user.getUserId());
 			
 			currentUser.setAnonymUser(false);
 			
 			Cookie userIdCookie = new Cookie("userId", String.valueOf(user.getUserId()));
-			userIdCookie.setMaxAge(60 * 60 * 24 * 30); // Cookie userId будет храниться 30 дней
+			userIdCookie.setMaxAge(60 * 60 * 24 * 30); // Cookie userId Р±СѓРґРµС‚ С…СЂР°РЅРёС‚СЊСЃСЏ 30 РґРЅРµР№
 			userIdCookie.setPath("/");
 			response.addCookie(userIdCookie);
 			
 			System.out.println(cart);
 			
 			if(!cart.getBooks().equals(booksInCart)) {
-				System.out.println("Корзины разные");
+				System.out.println("РљРѕСЂР·РёРЅС‹ СЂР°Р·РЅС‹Рµ");
 				
 				Set<String> newCartSet = new LinkedHashSet<>();
 				for(String bookId : cart.getBooks().split("ID")) {
@@ -103,7 +103,7 @@ public class CartItemsAdvice {
 					}
 				}
 				
-				System.out.println("Получившееся множество: " + newCartSet);
+				System.out.println("РџРѕР»СѓС‡РёРІС€РµРµСЃСЏ РјРЅРѕР¶РµСЃС‚РІРѕ: " + newCartSet);
 				
 								
 				String newCart = "";
@@ -141,7 +141,7 @@ public class CartItemsAdvice {
 			model.addAttribute("totalSum",currentUser.getTotalSum());
 			model.addAttribute("booksInCart",currentUser.getBooksInCart());
 			model.addAttribute("booksInCartList", currentUser.parseBooksToList());
-			/*System.out.println("Найденная корзина: " + cart);
+			/*System.out.println("РќР°Р№РґРµРЅРЅР°СЏ РєРѕСЂР·РёРЅР°: " + cart);
 			
 			model.addAttribute("totalItemsInCart",cart.getTotalItems());
 			model.addAttribute("totalSum",cart.getTotalSum());
