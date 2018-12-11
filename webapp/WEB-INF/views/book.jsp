@@ -66,7 +66,7 @@
 						</div>
 						<div class="col-lg-3 book-cover">
 							<div class="image">
-								<img class="img-fluid" src="/uploads/bookCovers/${bookInfo.coverPath}">
+								<img class="img-fluid" src="https://s3.us-east-2.amazonaws.com/stikhovs-book-store/bookCovers/${bookInfo.coverPath}">
 							</div>
 						</div>
 						<div class="col-lg-9 col-md-7 book-details">

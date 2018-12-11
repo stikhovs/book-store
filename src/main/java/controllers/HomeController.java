@@ -1,10 +1,16 @@
 package controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.Bucket;
 
 import data.services.BookService;
 import data.services.ReviewService;
@@ -28,6 +34,7 @@ public class HomeController {
 		model.addAttribute("newArrivals",service.getNewArrivals());
 		model.addAttribute("bestsellers",service.getBestsellers());
 		model.addAttribute("preOrders", service.getPreOrders());
+				
 		return "index";
 	}
 	
