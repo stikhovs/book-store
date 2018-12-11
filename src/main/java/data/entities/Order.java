@@ -11,7 +11,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
 @Entity
-@Table (name = "orders")
+@Table (name = "book_store.orders")
 public class Order {
 
 	@Id
