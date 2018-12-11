@@ -193,7 +193,7 @@
 								<div class="image">
 									<img class="img-fluid" title='${newBook.title}'
 										alt='${newBook.title}'
-										src="/uploads/bookCovers/${newBook.coverPath}">
+										src="https://s3.us-east-2.amazonaws.com/stikhovs-book-store/bookCovers/${newBook.coverPath}">
 								</div>
 								<div class="book-stickers">
 									<div class="stickers-item d-flex flex-column">
@@ -255,7 +255,7 @@
 								<div class="image">
 									<img class="img-fluid" title='${bestseller.title}'
 										alt='${bestseller.title}'
-										src="/uploads/bookCovers/${bestseller.coverPath}">
+										src="https://s3.us-east-2.amazonaws.com/stikhovs-book-store/bookCovers/${bestseller.coverPath}">
 								</div>
 								<div class="book-stickers">
 									<div class="stickers-item d-flex flex-column">
@@ -322,7 +322,7 @@
 								<div class="image">
 									<img class="img-fluid" title='${preOrder.title}'
 										alt='${preOrder.title}'
-										src="/uploads/bookCovers/${preOrder.coverPath}">
+										src="https://s3.us-east-2.amazonaws.com/stikhovs-book-store/bookCovers/${preOrder.coverPath}">
 								</div>
 							</a>
 							<div class="card-footer text-muted">

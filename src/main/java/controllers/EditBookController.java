@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.amazonaws.regions.Region;
+import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
@@ -80,12 +82,12 @@ public class EditBookController {
 		bookCover.transferTo(bookCoverFile);
 		
 		AmazonS3 s3 = AmazonS3ClientBuilder.defaultClient();
+		s3.setRegion(Region.getRegion(Regions.US_EAST_2));
 		
 		String fileKey = "bookCovers/" + book.getIsbn() + "/" + bookCover.getOriginalFilename();
 		
 		s3.putObject("stikhovs-book-store", fileKey , bookCoverFile);
 		s3.setObjectAcl("stikhovs-book-store", fileKey ,CannedAccessControlList.PublicRead);
-		
 		/*String uploadRootPath = Paths.get(request.getServletContext().getRealPath(env.getProperty("img.rootPath"))).getParent().getParent() + env.getProperty("img.book.upload") + File.separator + book.getIsbn();
 		File uploadRootDir = new File(uploadRootPath);// Create directory if it not exists.
 		if (!uploadRootDir.exists()) {

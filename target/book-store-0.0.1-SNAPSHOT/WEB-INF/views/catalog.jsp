@@ -137,7 +137,7 @@
 									<div class="image">
 										<img class="img-fluid" title='${book.title}'
 											alt='${book.title}'
-											src="/uploads/bookCovers/${book.coverPath}">
+											src="https://s3.us-east-2.amazonaws.com/stikhovs-book-store/bookCovers/${book.coverPath}">
 									</div>
 									<div class="book-stickers">
 										<div class="stickers-item d-flex flex-column">
