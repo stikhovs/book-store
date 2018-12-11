@@ -82,7 +82,6 @@ public class EditBookController {
 		bookCover.transferTo(bookCoverFile);
 		
 		AmazonS3 s3 = AmazonS3ClientBuilder.defaultClient();
-		s3.setRegion(Region.getRegion(Regions.US_EAST_2));
 		
 		String fileKey = "bookCovers/" + book.getIsbn() + "/" + bookCover.getOriginalFilename();
 		
