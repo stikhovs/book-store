@@ -25,10 +25,10 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	@Query(value = "SELECT DISTINCT book_store.books.Genre_Two FROM book_store.books", nativeQuery = true )
 	public List<String> getDistinctGenreTwo();
 		
-	@Query(value = "SELECT DISTINCT book_store.books.Genre_Two FROM books WHERE book_store.books.Genre_One = :genreOne", nativeQuery = true )
+	@Query(value = "SELECT DISTINCT book_store.books.Genre_Two FROM book_store.books WHERE book_store.books.Genre_One = :genreOne", nativeQuery = true )
 	public List<String> getInnerGenreForEachOuterGenre(@Param("genreOne") String genreOne);
 	
-	@Query(value = "SELECT DISTINCT book_store.books.Genre_One FROM books WHERE book_store.books.Genre_Two = :genreTwo", nativeQuery = true )
+	@Query(value = "SELECT DISTINCT book_store.books.Genre_One FROM book_store.books WHERE book_store.books.Genre_Two = :genreTwo", nativeQuery = true )
 	public String getOuterGenreForInnerGenre(@Param("genreTwo") String genreTwo);
 	
 	@Query(value = "SELECT * FROM book_store.books WHERE (Genre_One LIKE :genre) OR (Genre_Two LIKE :genre) ", nativeQuery = true)
