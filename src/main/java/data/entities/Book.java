@@ -8,57 +8,57 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "book_store.books")
+@Table(name = "books")
 public class Book {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Book_ID")
+	@Column(name = "book_id")
 	private long bookId;
 	
-	@Column(name = "Title")
+	@Column(name = "title")
 	private String title;
 	
-	@Column(name = "Author")
+	@Column(name = "author")
 	private String author;
 	
-	@Column(name = "Description")
+	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "isNewArrival")
+	@Column(name = "isnewarrival")
 	private boolean newArrival;
 	
-	@Column(name = "isBestseller")
+	@Column(name = "isbestseller")
 	private boolean bestseller;
 	
-	@Column(name = "Genre_One")
+	@Column(name = "genre_one")
 	private String genreOne;
 	
-	@Column(name = "Genre_Two")
+	@Column(name = "genre_two")
 	private String genreTwo;
 	
-	@Column(name = "Pages")
+	@Column(name = "pages")
 	private int pages;
 	
-	@Column(name = "Publisher")
+	@Column(name = "publisher")
 	private String publisher;
 	
-	@Column(name = "Publish_Year")
+	@Column(name = "publish_year")
 	private int publishYear;
 	
-	@Column(name = "Cover_Type")
+	@Column(name = "cover_type")
 	private String coverType;
 	
-	@Column(name = "ISBN")
+	@Column(name = "isbn")
 	private String isbn;
 	
-	@Column(name = "Price")
+	@Column(name = "price")
 	private double price;
 	
-	@Column(name = "PreOrder")
+	@Column(name = "preoder")
 	private boolean preOrder;
 	
-	@Column(name = "CoverPath")
+	@Column(name = "coverpath")
 	private String coverPath;
 	
 	
