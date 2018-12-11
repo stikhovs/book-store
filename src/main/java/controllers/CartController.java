@@ -87,7 +87,7 @@ public class CartController {
 				new Cookie("totalSum", String.valueOf(currentUser.getTotalSum())), 
 				};
 		Arrays.asList(cookies).forEach(cookie -> {
-			//cookie.setPath("/");
+			cookie.setPath("/");
 			response.addCookie(cookie);
 		});
 		

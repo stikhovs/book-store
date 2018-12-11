@@ -166,8 +166,8 @@ public class RegistrationController {
 		cart.setBooks(currentUser.getBooksInCart());
 		cart.setTotalItems(currentUser.getTotalItemsInCart());
 		cart.setTotalSum(currentUser.getTotalSum());
-		
 		cartRepository.saveAndFlush(cart);
+		
 		
 		model.addAttribute("user", user);
 		

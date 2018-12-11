@@ -19,10 +19,10 @@ public class Cart {
 	@Column( name = "userid")
 	private long userId;
 	
-	@Column( name = "totalItems")
+	@Column( name = "totalitems")
 	private int totalItems;
 	
-	@Column( name = "totalSum")
+	@Column( name = "totalsum")
 	private double totalSum;
 	
 	@Column( name = "books")
