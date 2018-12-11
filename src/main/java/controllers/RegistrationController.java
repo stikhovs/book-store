@@ -106,7 +106,7 @@ public class RegistrationController {
 				
 				AmazonS3 s3 = AmazonS3ClientBuilder.defaultClient();
 				
-				String fileKey = "userAvatars/" + newUser.getDateOfCreation() + "/" + myFile.getOriginalFilename();
+				String fileKey = "userAvatars/" + newUserCreationTime + "/" + myFile.getOriginalFilename();
 				
 				s3.putObject("stikhovs-book-store", fileKey , userAvatarFile);
 				s3.setObjectAcl("stikhovs-book-store", fileKey ,CannedAccessControlList.PublicRead);
