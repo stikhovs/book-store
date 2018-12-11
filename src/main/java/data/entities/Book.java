@@ -55,7 +55,7 @@ public class Book {
 	@Column(name = "price")
 	private double price;
 	
-	@Column(name = "preoder")
+	@Column(name = "preorder")
 	private boolean preOrder;
 	
 	@Column(name = "coverpath")
