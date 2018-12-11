@@ -50,7 +50,7 @@
 		<p>${user.email}</p>
 
 <div style="width: 100px;">
-<img alt="" class="img-fluid" src="/uploads/userAvatars/${user.avatarPath}">
+<img alt="" class="img-fluid" src="https://s3.us-east-2.amazonaws.com/stikhovs-book-store/userAvatars/${user.avatarPath}">
 </div>
 
 		<a href='<spring:url value="/"/>' class="btn btn-outline-secondary">Назад</a> 

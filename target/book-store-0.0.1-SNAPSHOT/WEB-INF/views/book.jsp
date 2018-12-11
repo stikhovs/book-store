@@ -181,7 +181,7 @@
 									<div class="user-avatar">
 										<div class="image">
 											<img class="img-fluid"
-												src="/uploads/userAvatars/${review.user.avatarPath}">
+												src="https://s3.us-east-2.amazonaws.com/stikhovs-book-store/userAvatars/${review.user.avatarPath}">
 										</div>
 									</div>
 									<div class="review-content">

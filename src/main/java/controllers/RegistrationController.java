@@ -23,6 +23,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.CannedAccessControlList;
+
 import components.CurrentUserComponent;
 import components.FileBucketComponent;
 import components.RegisterUserComponent;
@@ -53,13 +57,7 @@ public class RegistrationController {
 
 	@GetMapping("/registration")
 	public String goRegistration(HttpServletRequest request) {
-		// model.addAttribute("newUser", new RegisterUserComponent());
-		System.out.println("GET");
-		System.out.println(env.getProperty("img.upload"));
-		System.out.println(request.getServletContext().getRealPath(env.getProperty("img.upload")));
 		
-		String uploadRootPath = Paths.get(request.getServletContext().getRealPath(env.getProperty("img.rootPath"))).getParent().getParent() + env.getProperty("img.upload") + File.separator + 123;
-		System.out.println("uploadRootPath= " + uploadRootPath);
 		return "registration";
 	}
 
@@ -88,7 +86,9 @@ public class RegistrationController {
 			result.rejectValue("passwordConfirm", "passwordNoMatch", "Пароли не совпадают");
 		}
 		
+		// Загрузка аватара на Amazon
 		MultipartFile myFile = newUser.getFile();
+		
 		if(!myFile.isEmpty()) {
 
 			//System.out.println("Content Type: " + myFile.getContentType());
@@ -101,7 +101,17 @@ public class RegistrationController {
 				}
 				String newUserCreationTime = newUser.getDateOfCreation();
 				
-				String uploadRootPath = Paths.get(request.getServletContext().getRealPath(env.getProperty("img.rootPath"))).getParent().getParent() + env.getProperty("img.upload") + File.separator + newUserCreationTime;
+				File userAvatarFile = new File(myFile.getOriginalFilename());
+				myFile.transferTo(userAvatarFile);
+				
+				AmazonS3 s3 = AmazonS3ClientBuilder.defaultClient();
+				
+				String fileKey = "userAvatars/" + newUser.getDateOfCreation() + "/" + myFile.getOriginalFilename();
+				
+				s3.putObject("stikhovs-book-store", fileKey , userAvatarFile);
+				s3.setObjectAcl("stikhovs-book-store", fileKey ,CannedAccessControlList.PublicRead);
+				
+				/*String uploadRootPath = Paths.get(request.getServletContext().getRealPath(env.getProperty("img.rootPath"))).getParent().getParent() + env.getProperty("img.upload") + File.separator + newUserCreationTime;
 				System.out.println("uploadRootPath= " + uploadRootPath);
 
 				File uploadRootDir = new File(uploadRootPath);
@@ -115,7 +125,7 @@ public class RegistrationController {
 						new File(uploadRootDir.getAbsolutePath() + File.separator + myFile.getOriginalFilename()));
 				
 				
-				model.addAttribute("avatar", newUserCreationTime + File.separator + myFile.getOriginalFilename());
+				model.addAttribute("avatar", newUserCreationTime + File.separator + myFile.getOriginalFilename());*/
 				newUser.setAvatarPath(newUserCreationTime + File.separator + myFile.getOriginalFilename());
 				
 			}

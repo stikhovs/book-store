@@ -75,7 +75,7 @@ public class EditBookController {
 		
 		
 		
-		
+		//Загрузка обложки на Amazon
 		MultipartFile bookCover = book.getBookCover();
 		
 		File bookCoverFile = new File(bookCover.getOriginalFilename());
@@ -87,14 +87,6 @@ public class EditBookController {
 		
 		s3.putObject("stikhovs-book-store", fileKey , bookCoverFile);
 		s3.setObjectAcl("stikhovs-book-store", fileKey ,CannedAccessControlList.PublicRead);
-		/*String uploadRootPath = Paths.get(request.getServletContext().getRealPath(env.getProperty("img.rootPath"))).getParent().getParent() + env.getProperty("img.book.upload") + File.separator + book.getIsbn();
-		File uploadRootDir = new File(uploadRootPath);// Create directory if it not exists.
-		if (!uploadRootDir.exists()) {
-			uploadRootDir.mkdirs();
-		}*/
-		
-		/*FileCopyUtils.copy(bookCover.getBytes(),
-				new File(uploadRootDir.getAbsolutePath() + File.separator +  bookCover.getOriginalFilename()));*/
 		
 		Book realBook = bookService.getBookById(book.getBookId());
 		realBook.setCoverPath(book.getIsbn() + File.separator + bookCover.getOriginalFilename());
