@@ -99,6 +99,7 @@ public class LoginController {
 			currentUser.setTotalItemsInCart(cart.getTotalItems());
 			currentUser.setTotalSum(cart.getTotalSum());
 			currentUser.setBooksInCart(cart.getBooks());
+			currentUser.setUserId(user.getUserId());
 			
 			Cookie userIdCookie = new Cookie("userId", String.valueOf(user.getUserId()));
 			userIdCookie.setMaxAge(300);

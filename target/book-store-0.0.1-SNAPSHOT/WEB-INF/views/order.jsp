@@ -39,16 +39,13 @@
 		<jsp:include page="../views/fragments/header.jsp"></jsp:include>
 		<jsp:include page="../views/fragments/main-categories.jsp"></jsp:include>
 
-
-
-		<h3>Оформление заказа</h3>
-
-		<ol>
-			<c:forEach items="${booksInCartList }" var="book">
-				<li>${book.title }-${book.author}, ${book.price} руб.</li>
-			</c:forEach>
-		</ol>
-		<p>Общая сумма: ${totalSum} руб.</p>
+		<div class="container">
+			<h3 style="margin: 40px 0 20px;">Оформление заказа <br>
+			<small class="text-muted">Все поля являются обязательными</small>
+			</h3>
+			
+		
+		<p style="font-size: 20px; margin-bottom: 20px;">Заказ на сумму: ${totalSum} руб.</p>
 
 
 		<spring:url value="/order" var="finalUrl"/>
@@ -58,7 +55,8 @@
 				<div class="col-sm-4">
 				<form:input path="userName" id="userName" cssClass="form-control"
 								htmlEscape="true" placeholder="Ваше имя" value="${user.firstName}" />
-				<form:errors path="userName"/>
+								<small class="form-text text-muted">Пожалуйста, введите ваше имя</small>
+				<form:errors cssClass="form-errors" path="userName"/>
 				</div>
 			</div>
 			<div class="form-group row">
@@ -66,7 +64,8 @@
 				<div class="col-sm-4">
 				<form:input path="userPhone" id="userPhone" cssClass="form-control"
 								htmlEscape="true" placeholder="Ваш телефон" value="${user.phone}" />
-				<form:errors path="userPhone"/>
+								<small class="form-text text-muted">Пожалуйста, введите ваш номер телефона в формате +7-000-111-22-33</small>
+				<form:errors cssClass="form-errors" path="userPhone"/>
 				</div>
 			</div>
 			<div class="form-group row">
@@ -74,7 +73,8 @@
 				<div class="col-sm-4">
 				<form:input path="userEmail" id="userEmail" cssClass="form-control"
 								htmlEscape="true" placeholder="Email" value="${user.email}" />
-				<form:errors path="userEmail"/>
+								<small class="form-text text-muted">Пожалуйста, введите ваш адрес электронной почты</small>
+				<form:errors cssClass="form-errors" path="userEmail"/>
 				</div>
 			</div>
 			<div class="form-group row">
@@ -82,13 +82,41 @@
 				<div class="col-sm-4">
 				<form:input path="address" id="userAddress" cssClass="form-control"
 								htmlEscape="true" placeholder="Адрес доставки" />
-				<form:errors path="address"/>
+								<small class="form-text text-muted">Пожалуйста, введите адрес доставки</small>
+				<form:errors cssClass="form-errors" path="address"/>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-success">Подтвердить</button>
+			<div class="d-flex justify-content-end" style="margin: 20px 0 40px;">
+				<a style="margin-right: 30px;" href='<spring:url value="/cart"/>' class="btn btn-outline-secondary">Вернуться к корзине</a> 
+				<button type="submit" class="btn btn-success">Подтвердить</button>
+			</div>
+			
 		</form:form>
 
-		<a href='<spring:url value="/cart"/>' class="btn btn-outline-secondary">Назад</a> 
+
+		<p><strong>Книги к покупке:</strong></p>
+		
+
+		
+			<c:forEach items="${booksInCartList }" var="book">
+				<div class="book-item d-flex" style="margin-bottom: 15px;">
+								<div class="book-cover" style="width: 150px;">
+									<a target="_blank" href='<spring:url value="/catalog/${book.bookId}"/>'>
+										<img class="img-fluid" src="https://s3.us-east-2.amazonaws.com/stikhovs-book-store/bookCovers/${book.coverPath}">
+									</a>
+								</div>
+								<div class="book-info-block d-flex flex-column justify-content-between" style="margin-left: 30px;">
+									<div class="book-info-details">
+										<p class="book-info title"><strong><a style="color: #000; margin-bottom: 5px;" target="_blank" href='<spring:url value="/catalog/${book.bookId}"/>'>${book.title }</a></strong></p>
+										<p class="book-info author"><a style="color: #000; margin-bottom: 5px;"  href='<spring:url value="/search?search=${book.author}"/>'>${book.author}</a></p>										
+									</div>
+								</div>
+							</div>
+			</c:forEach>
+		
+		</div>
+
+		
 		
 		
 		<jsp:include page="../views/fragments/footer.jsp"></jsp:include>

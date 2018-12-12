@@ -41,7 +41,9 @@
 
 
 		<div class="container">
-			<h3>Регистрация</h3>
+			<h3 style="margin: 40px 0;">Регистрация<br>
+				<small class="text-muted">Все поля являются обязательными, кроме выбора аватара</small>
+			</h3>
 
 			<spring:url value="/registration" var="registerUrl" />
 			<form:form action="${registerUrl}" method="POST"
@@ -51,7 +53,8 @@
 					<div class="col-sm-4">
 						<form:input path="firstName" id="firstName"
 							cssClass="form-control" htmlEscape="true" placeholder="Ваше имя" />
-						<form:errors path="firstName" />
+							<small class="form-text text-muted">Пожалуйста, введите ваше имя</small>
+						<form:errors cssClass="form-errors" path="firstName" />
 					</div>
 				</div>
 				<div class="form-group row">
@@ -59,7 +62,8 @@
 					<div class="col-sm-4">
 						<form:input path="lastName" id="lastName" cssClass="form-control"
 							htmlEscape="true" placeholder="Ваша фамилия" />
-						<form:errors path="lastName" />
+							<small class="form-text text-muted">Пожалуйста, введите вашу фамилию</small>
+						<form:errors cssClass="form-errors" path="lastName" />
 					</div>
 				</div>
 				<div class="form-group row">
@@ -67,7 +71,8 @@
 					<div class="col-sm-4">
 						<form:input path="phone" id="phone" cssClass="form-control"
 							htmlEscape="true" placeholder="Ваш телефон" />
-						<form:errors path="phone" />
+							<small class="form-text text-muted">Пожалуйста, введите ваш номер телефона в формате +7-000-111-22-33</small>
+						<form:errors cssClass="form-errors" path="phone" />
 					</div>
 				</div>
 				<div class="form-group row">
@@ -75,7 +80,8 @@
 					<div class="col-sm-4">
 						<form:input path="email" id="email" cssClass="form-control"
 							htmlEscape="true" placeholder="Email" />
-						<form:errors path="email" />
+							<small class="form-text text-muted">Пожалуйста, введите ваш адрес электронной почты</small>
+						<form:errors cssClass="form-errors" path="email" />
 					</div>
 				</div>
 
@@ -84,7 +90,8 @@
 					<div class="col-sm-4">
 						<form:password path="password" id="password"
 							cssClass="form-control" htmlEscape="true" />
-						<form:errors path="password" />
+							<small class="form-text text-muted">Пожалуйста, придумайте пароль для своего аккаунта</small>
+						<form:errors cssClass="form-errors" path="password" />
 					</div>
 				</div>
 				<div class="form-group row">
@@ -93,15 +100,20 @@
 					<div class="col-sm-4">
 						<form:password path="passwordConfirm" id="passwordConfirm"
 							cssClass="form-control" htmlEscape="true" />
-						<form:errors path="passwordConfirm" />
+							<small class="form-text text-muted">Пожалуйста, подтвердите пароль для своего аккаунта</small>
+						<form:errors cssClass="form-errors" path="passwordConfirm" />
 					</div>
 				</div>
-				<form:input path="file" type="file" />
-				<form:errors path="file" />
-				<button type="submit" class="btn btn-success">Зарегистрироваться</button>
+				<p style="border-top: 1px solid #d0d0d0;padding-top: 10px;margin-top: 20px; margin-bottom: 5px;">Также вы можете выбрать аватар для вашего аккаунта</p>
+				
+				<form:input path="file" type="file" accept=".jpg, .jpeg, .png" />
+				<small class="form-text text-muted">Изображение не должно превышать 1 мегабайт</small>
+				<form:errors cssClass="form-errors" path="file" />
+				<div class="register-button text-right" style="margin-top: 20px; margin-bottom: 20px;">
+					<button type="submit" class="btn btn-success">Зарегистрироваться</button>
+				</div>
 			</form:form>
 
-			<a href='<spring:url value="/"/>' class="btn btn-outline-secondary">Назад</a>
 		</div>
 
 

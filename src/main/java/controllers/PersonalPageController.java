@@ -1,21 +1,30 @@
 package controllers;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import components.CurrentUserComponent;
+import data.entities.Book;
+import data.entities.Order;
 import data.entities.User;
 import data.repositories.CartRepository;
 import data.repositories.OrderRepository;
 import data.repositories.ReviewRepository;
 import data.repositories.UserRepository;
+import data.services.BookService;
+import data.services.OrderService;
 
 @Controller
 public class PersonalPageController {
@@ -35,9 +44,37 @@ public class PersonalPageController {
 	@Autowired
 	CurrentUserComponent currentUser;
 	
+	@Autowired
+	BookService bookService;
+	
+	@Autowired
+	OrderService orderService;
+	
+	public List<Book> getBooksFromOrder(Order order){
+		List<Book> books = new LinkedList<>();
+		for(String bookId : order.getBooks().split("ID")) {
+			if(!bookId.equals("")) {
+				Book book = bookService.getBookById(Long.parseLong(bookId));
+				books.add(book);
+			}
+		}
+		return books;
+	}
 	
 	@GetMapping("/personal-page")
-	public String goToPersonalPage() {
+	public String goToPersonalPage(Model model) {
+		
+		List<Order> orders = orderService.findOrdersByUserId(currentUser.getUserId());
+		Map<Order,List<Book>> orderAndBooksMap = new LinkedHashMap<>();
+		
+		orders.forEach(order -> {
+			orderAndBooksMap.put(order, getBooksFromOrder(order));
+		});
+		
+		model.addAttribute("orderAndBooksMap", orderAndBooksMap);
+		System.out.println(currentUser);
+		System.out.println(orderAndBooksMap.size());
+		
 		return "personal-page";
 	}
 	

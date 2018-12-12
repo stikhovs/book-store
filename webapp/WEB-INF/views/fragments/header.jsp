@@ -53,7 +53,7 @@
 			<div id="signIn-cart-min">
 				<div class="signIn-block-min">
 					<c:choose>
-						<c:when test="${user != null}">
+						<c:when test="${user.email != null}">
 							<a href='<spring:url value="/personal-page"/>' class="white-color">Добро пожаловать,
 								${user.firstName }!</a>
 							<a href='<spring:url value="/logout"/>' class="logout">Выйти</a>

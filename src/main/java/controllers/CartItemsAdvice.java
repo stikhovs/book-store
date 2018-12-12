@@ -139,15 +139,8 @@ public class CartItemsAdvice {
 			model.addAttribute("totalSum",currentUser.getTotalSum());
 			model.addAttribute("booksInCart",currentUser.getBooksInCart());
 			model.addAttribute("booksInCartList", currentUser.parseBooksToList());
-			/*System.out.println("Найденная корзина: " + cart);
 			
-			model.addAttribute("totalItemsInCart",cart.getTotalItems());
-			model.addAttribute("totalSum",cart.getTotalSum());
-			model.addAttribute("booksInCart",cart.getBooks());	
-			
-			System.out.println("totalItems: " + cart.getTotalItems());
-			System.out.println("totalSum: " + cart.getTotalSum());
-			System.out.println("booksInCart: " + cart.getBooks());*/
+			currentUser.setUserId(Long.parseLong(userId));
 			
 			model.addAttribute("user", user);
 			

@@ -1,6 +1,8 @@
 package controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -40,11 +42,7 @@ public class OrderController {
 		
 	@GetMapping("/order")
 	public String showOrder(Model model) {
-		
-//		Order orderDetails = new Order();		
-//		
-//		model.addAttribute("orderDetails", orderDetails);
-		
+				
 		return "order";
 	}
 	
@@ -65,12 +63,19 @@ public class OrderController {
 		}
 		
 		User user = userService.findUserById(currentUser.getUserId());
+		System.out.println("Найденный юзер: " + user);
 		Cart cart = cartService.findCartByUserId(user.getUserId());
 		
 		orderDetails.setUserId(user.getUserId());
 		orderDetails.setCartId(cart.getCartId());
 		
 		if(orderDetails.getAddress().isEmpty()) orderDetails.setAddress("no address");
+		
+		orderDetails.setBooks(cart.getBooks());
+		
+		SimpleDateFormat fm = new SimpleDateFormat("dd.MM.yyyy");
+		Date date = new Date();
+		orderDetails.setDate(fm.format(date));
 		
 		orderRepo.saveAndFlush(orderDetails);
 		

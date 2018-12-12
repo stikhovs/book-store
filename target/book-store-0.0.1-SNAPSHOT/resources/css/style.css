@@ -36,6 +36,10 @@ button:focus {
 	outline: none;
 }
 
+.btn:focus {
+	box-shadow: none !important;
+}
+
 .form-control:focus {
 	border-color: #ced4da;
 	box-shadow: none;	
@@ -43,4 +47,9 @@ button:focus {
 
 #signInModal .form-body input#inputEmail {
 	margin: 0 0 10px 0;
+}
+
+.form-errors {
+	font-size: 13px;
+    color: #ce0404;
 }
