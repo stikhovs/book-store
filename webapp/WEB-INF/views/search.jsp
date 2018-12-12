@@ -164,7 +164,8 @@
 										</a>
 										<div class="card-footer text-muted">
 											<div class="author">
-												<a class="author-name" href='<spring:url value="/search?search=${book.author}"/>'>${book.author}</a>
+												<a class="author-name"
+													href='<spring:url value="/search?search=${book.author}"/>'>${book.author}</a>
 											</div>
 											<div class="title">
 												<a href='<spring:url value="/catalog/${book.bookId}"/>'
@@ -172,16 +173,28 @@
 											</div>
 											<div class="buy">
 												<div class="price">
-													<p><span class="price-sum"><fmt:formatNumber
-													type="number" maxFractionDigits="2"
-													value="${book.price}" /></span>
-														руб.
+													<p>
+														<span class="price-sum"><fmt:formatNumber
+																type="number" maxFractionDigits="2"
+																value="${book.price}" /></span> руб.
 													</p>
 												</div>
 												<c:choose>
 													<c:when test="${book.preOrder}">
-														<a href="#" class="btn btn-outline-secondary"
-															data-productid="${book.bookId}">Предзаказ</a>
+														<c:choose>
+															<c:when test="${currentUser.anonymUser == false}">
+																<a
+																	href='<spring:url value="/catalog/${book.bookId}/preorder"/>'
+																	class="btn btn-outline-secondary"
+																	data-productid="${book.bookId}">Предзаказ</a>
+															</c:when>
+															<c:otherwise>
+																<a href="#" data-toggle="modal"
+																	data-target="#signInModal"
+																	class="btn btn-outline-secondary btn-order"
+																	data-productid="${book.bookId}">Предзаказ</a>
+															</c:otherwise>
+														</c:choose>
 													</c:when>
 													<c:otherwise>
 														<s:incart

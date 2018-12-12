@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table (name = "book_store.reviews")
@@ -24,6 +25,7 @@ public class Review {
 
 	@Column(name = "ReviewText")
 	@NotEmpty(message = "Пожалуйста, оставьте свой отзыв")
+	@Pattern(regexp = ".{1,3000}", message = "Максимальное кол-во символов: 3000")
 	private String  reviewText;
 
 	@Column(name = "BookID")

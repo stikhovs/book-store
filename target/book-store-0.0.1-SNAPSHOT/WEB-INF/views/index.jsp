@@ -330,12 +330,21 @@
 									<a class="author-name" href='<spring:url value="/search?search=${preOrder.author}"/>'>${preOrder.author}</a>
 								</div>
 								<div class="title">
-									<a href='<spring:url value="/catalog/${bestseller.bookId}"/>'
+									<a href='<spring:url value="/catalog/${preOrder.bookId}"/>'
 										class="title-link" target="_blank">${preOrder.title}</a>
 								</div>
 								<div class="buy">
-									<a href="#" class="btn btn-outline-secondary btn-order"
+								<c:choose>								
+									<c:when test="${currentUser.anonymUser == false}">
+										<a href='<spring:url value="/catalog/${preOrder.bookId}/preorder"/>' class="btn btn-outline-secondary btn-order"
 										data-productid="${preOrder.bookId}">Предзаказ</a>
+									</c:when>
+									<c:otherwise>
+										<a href="#" data-toggle="modal" data-target="#signInModal" class="btn btn-outline-secondary btn-order"
+										data-productid="${preOrder.bookId}">Предзаказ</a>
+									</c:otherwise>					
+								</c:choose>
+									
 								</div>
 							</div>
 						</div>

@@ -8,6 +8,7 @@ C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\e
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\services\BookService.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\repositories\BookRepository.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\components\RegisterUserComponent.java
+C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\repositories\PreorderRepository.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\entities\Order.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\LoginController.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\services\UserService.java
@@ -19,11 +20,14 @@ C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\compon
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\customJspTags\SearchBooksInCartTag.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\OrderController.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\CatalogController.java
+C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\services\PreorderService.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\services\CategoriesService.java
+C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\PreorderController.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\repositories\UserRepository.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\ReviewController.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\configuration\DataConfig.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\EditBookController.java
+C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\entities\Preorder.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\repositories\OrderRepository.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\HomeController.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\RegistrationController.java

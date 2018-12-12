@@ -21,8 +21,6 @@
 <link rel="stylesheet"
 	href='<spring:url value="/resources/css/style.css"/>'>
 <link rel="stylesheet"
-	href='<spring:url value="/resources/css/breadcrumb.css"/>'>
-<link rel="stylesheet"
 	href='<spring:url value="/resources/css/book.css"/>'>
 
 <link
@@ -32,12 +30,33 @@
 	href='<spring:url value="/resources/images/favicon.ico"/>'
 	type="image/x-icon">
 
+<style>
+	@keyframes ridingCart {
+		from {left: 0; right: 100%;}
+		to { left: 100%; right: 0;}
+	}
+	
+	#riding-cart {
+		position: absolute;
+		left: 0;
+		animation-name: ridingCart;
+  		animation-duration: 5s;
+	}
+	
+</style>
+
 </head>
 <body>
 	<div class="container-fluid">
+		<div style="margin-top: 5%; text-align: center;">
+			<p style="font-size: 24px; margin-bottom: 5px;">Ваши книги уже в пути!</p>
+			<p style="font-size: 24px;">Через несколько секунд вы будете перенаправлены на главную страницу...</p>
+			<div class="cart-final" style="width: 300px;position: relative; width: 100%;  overflow: hidden;  height: 400px;">
+			<%-- <img id="riding-cart" class="img-fluid" src='<spring:url value="/resources/images/riding-cart.jpg"/>'> --%>
+    	<img id="riding-cart" class="img-fluid" src="https://media.istockphoto.com/photos/shopping-cart-with-books-3d-rendering-isolated-on-white-background-picture-id689416848?k=6&amp;m=689416848&amp;s=612x612&amp;w=0&amp;h=9bpfV4dtn-nP5u64puC-5_L8o7TkOtyTpaveQYQ1igU=">
+    </div>	
+		</div>
 		
-		<p>Заказ успешно сформирован!</p>
-		<p>Через несколько секунд вы будете перенаправлены на главную страницу...</p>
 		
 	</div>
 	<spring:url value="/" var="home"/>

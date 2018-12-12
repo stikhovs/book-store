@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>${bookInfo.title}-Sergio Books</title>
+<title>${bookInfo.title}-SergioBooks</title>
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -61,12 +61,14 @@
 						<div class="col-12 book-title-and-author">
 							<h3 class="book-title">${bookInfo.title}</h3>
 							<h5 class="book-author">
-								<a href='<spring:url value="/search?search=${bookInfo.author}"/>'>${bookInfo.author}</a>
+								<a
+									href='<spring:url value="/search?search=${bookInfo.author}"/>'>${bookInfo.author}</a>
 							</h5>
 						</div>
 						<div class="col-lg-3 book-cover">
 							<div class="image">
-								<img class="img-fluid" src="https://s3.us-east-2.amazonaws.com/stikhovs-book-store/bookCovers/${bookInfo.coverPath}">
+								<img class="img-fluid"
+									src="https://s3.us-east-2.amazonaws.com/stikhovs-book-store/bookCovers/${bookInfo.coverPath}">
 							</div>
 						</div>
 						<div class="col-lg-9 col-md-7 book-details">
@@ -98,20 +100,31 @@
 								</p>
 							</div>
 							<div class="buy">
-							
+
 								<c:choose>
 									<c:when test="${bookInfo.preOrder}">
-										<a href="#" class="btn btn-outline-secondary btn-order"
-											data-productid="${bookInfo.bookId}">Предзаказ</a>
+										<c:choose>
+											<c:when test="${currentUser.anonymUser == false}">
+												<a
+													href='<spring:url value="/catalog/${bookInfo.bookId}/preorder"/>'
+													class="btn btn-outline-secondary"
+													data-productid="${bookInfo.bookId}">Предзаказ</a>
+											</c:when>
+											<c:otherwise>
+												<a href="#" data-toggle="modal" data-target="#signInModal"
+													class="btn btn-outline-secondary btn-order"
+													data-productid="${bookInfo.bookId}">Предзаказ</a>
+											</c:otherwise>
+										</c:choose>
 									</c:when>
 									<c:otherwise>
-									<s:incart
-										falseString='<a href="#" class="btn btn-success btn-buy"
+										<s:incart
+											falseString='<a href="#" class="btn btn-success btn-buy"
 												data-productid="${bookInfo.bookId}">В корзину</a>'
-										trueString='<a href="#" class="btn book-in-cart-btn disabled"
+											trueString='<a href="#" class="btn book-in-cart-btn disabled"
 															data-productid="#">В корзине</a>'
-										bookId="${bookInfo.bookId}"
-										booksInCart="${currentUser.booksInCartList }" />
+											bookId="${bookInfo.bookId}"
+											booksInCart="${currentUser.booksInCartList }" />
 										<%-- <a href="#" class="btn btn-success btn-buy"
 													data-productid="${bookInfo.bookId}">В корзину</a> --%>
 										<%-- <c:choose>
@@ -131,7 +144,9 @@
 						</div>
 					</div>
 				</div>
-				<a href='<spring:url value="/catalog/${bookInfo.bookId}/book-edit"/>'> Редактировать книгу </a>
+				<%-- <a
+					href='<spring:url value="/catalog/${bookInfo.bookId}/book-edit"/>'>
+					Редактировать книгу </a> --%>
 				<div class="book-description-and-reviews col-12">
 					<nav>
 						<div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -150,28 +165,31 @@
 						</div>
 						<div class="tab-pane fade" id="nav-review" role="tabpanel"
 							aria-labelledby="nav-review-tab">
-							
+
 							<c:forEach items="${reviews }" var="review">
-							<c:choose>
-								<c:when test="${review.positive == true }">
-									<div class="review-item d-flex flex-column positive">
-								</c:when>
-								<c:otherwise>
-									<div class="review-item d-flex flex-column negative">
-								</c:otherwise>
-							</c:choose>
-							
-								<div class="mark d-flex justify-content-between align-items-center">
+								<c:choose>
+									<c:when test="${review.positive == true }">
+										<div class="review-item d-flex flex-column positive">
+									</c:when>
+									<c:otherwise>
+										<div class="review-item d-flex flex-column negative">
+									</c:otherwise>
+								</c:choose>
+
+								<div
+									class="mark d-flex justify-content-between align-items-center">
 									<div class="thumb">
-									<c:choose>
-										<c:when test="${review.positive == true }">
-											<img class="img-fluid" src='<spring:url value="/resources/images/thumb-up.png"/>'>
-										</c:when>
-										<c:otherwise>
-											<img class="img-fluid" src='<spring:url value="/resources/images/thumb-down.png"/>'>
-										</c:otherwise>
-									</c:choose>
-										
+										<c:choose>
+											<c:when test="${review.positive == true }">
+												<img class="img-fluid"
+													src='<spring:url value="/resources/images/thumb-up.png"/>'>
+											</c:when>
+											<c:otherwise>
+												<img class="img-fluid"
+													src='<spring:url value="/resources/images/thumb-down.png"/>'>
+											</c:otherwise>
+										</c:choose>
+
 									</div>
 									<div class="date">
 										<span class="date-text">${review.reviewDate }</span>
@@ -185,37 +203,41 @@
 										</div>
 									</div>
 									<div class="review-content">
-										<p class="user-name">${review.user.lastName } ${review.user.firstName }</p>
+										<p class="user-name">${review.user.lastName }
+											${review.user.firstName }</p>
 										<p class="user-review-text">${review.reviewText }</p>
 									</div>
 								</div>
-							</div>
-							
-							</c:forEach>
-							
-							<div class="add-review">
-								<p>Прочитали? Поделитесь с нами своими впечатлениями!</p>
-								<c:choose>
-									<c:when test="${currentUser.anonymUser == true}">
-										<a href="#" data-toggle="modal" data-target="#signInModal" class="btn btn-outline-secondary">Добавить отзыв</a>
-									</c:when>
-									<c:otherwise>
-										<a href='<spring:url value="/catalog/${bookInfo.bookId}/review"/>' class="btn btn-outline-secondary">Добавить отзыв</a>
-									</c:otherwise>
-								</c:choose>
-								
-							</div>
+						</div>
+
+						</c:forEach>
+
+						<div class="add-review">
+							<p>Прочитали? Поделитесь с нами своими впечатлениями!</p>
+							<c:choose>
+								<c:when test="${currentUser.anonymUser == true}">
+									<a href="#" data-toggle="modal" data-target="#signInModal"
+										class="btn btn-outline-secondary">Добавить отзыв</a>
+								</c:when>
+								<c:otherwise>
+									<a
+										href='<spring:url value="/catalog/${bookInfo.bookId}/review"/>'
+										class="btn btn-outline-secondary">Добавить отзыв</a>
+								</c:otherwise>
+							</c:choose>
+
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		
+	</div>
 
 
 
-		<jsp:include page="../views/fragments/footer.jsp"></jsp:include>
+
+
+	<jsp:include page="../views/fragments/footer.jsp"></jsp:include>
 
 	</div>
 </body>

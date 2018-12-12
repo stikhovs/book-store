@@ -35,9 +35,10 @@ public class ReviewController {
 	}
 	
 	@PostMapping("catalog/{id}/review")
-	public String leftReview(@ModelAttribute("review") @Valid Review review, BindingResult result, @PathVariable("id") long bookid, @ModelAttribute("user") User user) {
+	public String leftReview(@ModelAttribute("review") @Valid Review review, BindingResult result, @PathVariable("id") long bookid, @ModelAttribute("user") User user, Model model) {
 		
 		if(result.hasErrors()) {
+			model.addAttribute("book",bookService.getBookById(bookid));
 			return "review";
 		}
 		
@@ -48,6 +49,8 @@ public class ReviewController {
 		review.setPermitted(true);
 		
 		reviewRepository.saveAndFlush(review);
+		
+		
 		
 		return "redirect:/catalog/"+bookid;
 	}

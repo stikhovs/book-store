@@ -5,6 +5,7 @@ data\repositories\BookRepository.class
 data\services\SeachService.class
 controllers\RegistrationController.class
 controllers\PersonalPageController.class
+data\entities\Preorder.class
 data\repositories\CartRepository.class
 controllers\CartItemsAdvice.class
 controllers\CatalogController.class
@@ -26,12 +27,15 @@ data\entities\Book.class
 configuration\DispatcherServlet.class
 data\services\UserService.class
 data\repositories\ReviewRepository.class
+controllers\PreorderController.class
 controllers\ReviewController.class
 customJspTags\SearchBooksInCartTag.class
+data\services\PreorderService.class
 components\BookEditComponent.class
 data\repositories\OrderRepository.class
 configuration\WebConfig.class
 data\entities\Order.class
 data\entities\User.class
+data\repositories\PreorderRepository.class
 data\repositories\UserRepository.class
 data\services\OrderService.class
