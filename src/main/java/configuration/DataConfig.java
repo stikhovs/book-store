@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories("data.repositories")
 @EnableTransactionManagement
 @ComponentScan("data.services")
-@PropertySource("classpath:db.properties")
+@PropertySource("classpath:dblocal.properties")
 public class DataConfig {
 	
 	private static final String DB_DRIVER = "db.driver";
@@ -33,7 +33,7 @@ public class DataConfig {
 	private static final String DB_ENTITYMANAGER_PACKAGES_TO_SCAN = "db.entitymanager.packages.to.scan";
 	private static final String DB_HIBERNATE_HBM2DDL_AUTO = "db.hibernate.hbm2ddl.auto";
 	
-	private static final String DB_HIBERNATE_DEFAULT_SCHEMA = "db.hibernate.default_schema";
+	//private static final String DB_HIBERNATE_DEFAULT_SCHEMA = "db.hibernate.default_schema";
 
 	@Resource
 	Environment env;
@@ -70,7 +70,7 @@ public class DataConfig {
 		properties.put(DB_HIBERNATE_DIALECT, env.getRequiredProperty(DB_HIBERNATE_DIALECT));
 		properties.put(DB_HIBERNATE_HBM2DDL_AUTO, env.getRequiredProperty(DB_HIBERNATE_HBM2DDL_AUTO));
 		properties.put(DB_HIBERNATE_SHOW_SQL, env.getRequiredProperty(DB_HIBERNATE_SHOW_SQL));
-		properties.put(DB_HIBERNATE_DEFAULT_SCHEMA, env.getRequiredProperty(DB_HIBERNATE_DEFAULT_SCHEMA));
+		//properties.put(DB_HIBERNATE_DEFAULT_SCHEMA, env.getRequiredProperty(DB_HIBERNATE_DEFAULT_SCHEMA));
 		return properties;
 	}
 }
