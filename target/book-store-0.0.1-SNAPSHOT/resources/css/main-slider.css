@@ -76,7 +76,8 @@
     display: inline-block;
     vertical-align: middle;
     /*width: 150px;*/
-    width: 220px;
+    /*width: 220px;*/
+    width: 200px;
     margin: 0 15px;
 }
 
@@ -100,6 +101,11 @@
     font-size: 36px;
     font-weight: bold;
     margin: 0;
+}
+
+#slider .top-slider__subtitle span,
+#slider .top-slider__title span {
+	text-shadow: 0 0 20px black;
 }
 
 .slider-block {

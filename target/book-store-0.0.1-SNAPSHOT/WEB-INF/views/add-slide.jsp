@@ -78,9 +78,6 @@
 		</div>
 
 
-
-		<jsp:include page="../views/fragments/footer.jsp"></jsp:include>
-
 	</div>
 </body>
 </html>
