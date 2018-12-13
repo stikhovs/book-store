@@ -48,7 +48,6 @@
 		
 		
 		<c:forEach items="${mainSlider}" var="slide">
-			<p>${slide.book.title }</p>
 			<div class="book-slide">
 				<img class="background"				
 					src="https://s3.us-east-2.amazonaws.com/stikhovs-book-store/slider_background_path/${slide.backgroundPath}">
@@ -62,10 +61,10 @@
 					<div class="top-slider__content">
 						<div class="container">
 							<div class="top-slider__subtitle">
-								<span style="color: ${slide.authorColor };">slide.book.title.author</span>
+								<span style="color: ${slide.authorColor };">${slide.book.title.author}</span>
 							</div>
 							<div class="top-slider__title">
-								<span style="color: ${slide.titleColor };">slide.book.title</span>
+								<span style="color: ${slide.titleColor };">${slide.book.title}</span>
 							</div>
 
 						</div>
@@ -73,6 +72,8 @@
 				</div>
 			</div>
 		</c:forEach>
+		
+			
 		</div>
 
 
