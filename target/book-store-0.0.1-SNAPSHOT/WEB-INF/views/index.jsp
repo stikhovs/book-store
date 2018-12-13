@@ -45,138 +45,36 @@
 
 
 		<div id="slider">
+		
+		
+		<c:forEach items="${mainSlider}" var="slide">
+			<p>${slide.book.title }</p>
 			<div class="book-slide">
-				<img class="background"
-					src='<spring:url value="/resources/images/slider/01.jpg"/>'>
+				<img class="background"				
+					src="https://s3.us-east-2.amazonaws.com/stikhovs-book-store/slider_background_path/${slide.backgroundPath}">
 				<div class="slide-content d-flex">
 					<div class="top-slider__books books-showcase">
-						<a href="#" class="books-showcase__item" tabindex="0"> <img
-							src='<spring:url value="/resources/images/slider/1.jpg"/>' alt=""
+						<a href='<spring:url value="/catalog/${slide.book.bookId}"/>' class="books-showcase__item" tabindex="0"> <img
+							src="https://s3.us-east-2.amazonaws.com/stikhovs-book-store/bookCovers/${slide.book.coverPath}" alt=""
 							class="books-showcase__img img-fluid"> <!-- ОБЛОЖКА -->
 						</a>
 					</div>
 					<div class="top-slider__content">
 						<div class="container">
 							<div class="top-slider__subtitle">
-								<span style="color: #e7b49e;">Виктория Мельник</span>
+								<span style="color: ${slide.authorColor };">slide.book.title.author</span>
 							</div>
 							<div class="top-slider__title">
-								<span style="color: #e7b49e;">«Чизкейк внутри. Книга 2»</span>
+								<span style="color: ${slide.titleColor };">slide.book.title</span>
 							</div>
 
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="book-slide">
-				<img class="background"
-					src='<spring:url value="/resources/images/slider/04.jpg"/>'>
-				<div class="top-slider__books books-showcase">
-					<a href="#" class="books-showcase__item" tabindex="0"> <img
-						src='<spring:url value="/resources/images/slider/4.jpg"/>' alt=""
-						class="books-showcase__img img-fluid"> <!-- ОБЛОЖКА -->
-					</a>
-				</div>
-				<div class="top-slider__content">
-					<div class="container">
-						<div class="top-slider__subtitle">
-							<span style="color: white;">Виктор Пелевин</span>
-						</div>
-						<div class="top-slider__title">
-							<span style="color: white;">«Тайные виды на гору Фудзи»</span>
-						</div>
-
-					</div>
-				</div>
-			</div>
-			<div class="book-slide">
-				<img class="background"
-					src='<spring:url value="/resources/images/slider/03.jpg"/>'>
-				<div class="top-slider__books books-showcase">
-					<a href="#" class="books-showcase__item" tabindex="0"> <img
-						src='<spring:url value="/resources/images/slider/3.jpg"/>' alt=""
-						class="books-showcase__img img-fluid"> <!-- ОБЛОЖКА -->
-					</a>
-				</div>
-				<div class="top-slider__content">
-					<div class="container">
-						<div class="top-slider__subtitle">
-							<span style="color: red;">Юваль Ной Харари </span>
-						</div>
-						<div class="top-slider__title">
-							<span style="color: black;">«Ноmo Deus. Краткая история
-								будущего»</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="book-slide">
-				<img class="background"
-					src='<spring:url value="/resources/images/slider/05.jpg"/>'>
-				<div class="top-slider__books books-showcase">
-					<a href="#" class="books-showcase__item" tabindex="0"> <img
-						src='<spring:url value="/resources/images/slider/5.jpg"/>' alt=""
-						class="books-showcase__img img-fluid"> <!-- ОБЛОЖКА -->
-					</a>
-				</div>
-				<div class="top-slider__content">
-					<div class="container">
-						<div class="top-slider__subtitle">
-							<span style="color: white;">Ричард Джордж Адамс</span>
-						</div>
-						<div class="top-slider__title">
-							<span style="color: white;">«Истории обитателей холмов»</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="book-slide">
-				<img class="background"
-					src='<spring:url value="/resources/images/slider/06.jpg"/>'>
-				<div class="top-slider__books books-showcase">
-					<a href="#" class="books-showcase__item" tabindex="0"> <img
-						src='<spring:url value="/resources/images/slider/6.jpg"/>' alt=""
-						class="books-showcase__img img-fluid"> <!-- ОБЛОЖКА -->
-					</a>
-				</div>
-				<div class="top-slider__content">
-					<div class="container">
-						<div class="top-slider__subtitle">
-							<span style="color: #faebc3;">Вячеслав Недошивин</span>
-						</div>
-						<div class="top-slider__title">
-							<span style="color: #faebc3;">«Джордж Оруэлл. Неприступная
-								душа»</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="book-slide">
-				<img class="background"
-					src='<spring:url value="/resources/images/slider/07.jpg"/>'>
-				<div class="top-slider__books books-showcase">
-					<a href="#" class="books-showcase__item" tabindex="0"> <img
-						src='<spring:url value="/resources/images/slider/7.jpg"/>' alt=""
-						class="books-showcase__img img-fluid"> <!-- ОБЛОЖКА -->
-					</a>
-				</div>
-				<div class="top-slider__content">
-					<div class="container">
-						<div class="top-slider__subtitle">
-							<span style="color: #e8e9ad;">Марк Твен</span>
-						</div>
-						<div class="top-slider__title">
-							<span style="color: #e8e9ad;">«Похищение принца
-								Олеомаргарина»</span>
-						</div>
-					</div>
-				</div>
-			</div>
+		</c:forEach>
 		</div>
 
-		<c:forEach items="${mainSlider}" var="slide">
-			<p>${slide.book.title }</p>
-		</c:forEach>
 
 		<div id="newArrivals" class="slider-block">
 			<div class="title-block">
