@@ -26,6 +26,10 @@ import data.repositories.BookRepository;
 import data.repositories.MainSliderBooksRepository;
 import data.services.BookService;
 import data.services.MainSliderBooksService;
+import data.services.OrderService;
+import data.services.PreorderService;
+import data.services.ReviewService;
+import data.services.UserService;
 
 @Controller
 @RequestMapping("/admin")
@@ -51,6 +55,18 @@ public class AdminController {
 
 	@Autowired
 	BookEditComponent bookEditComponent;
+	
+	@Autowired
+	OrderService orderService;
+	
+	@Autowired
+	PreorderService preorderService;
+	
+	@Autowired
+	ReviewService reviewService;
+	
+	@Autowired
+	UserService userService;
 
 	@GetMapping("/add-book")
 	public String goAddBook(Model model) {
@@ -215,4 +231,33 @@ public class AdminController {
 		return "redirect:/";
 	}
 
+	
+	
+	
+	@GetMapping("/order-list")
+	public String goOrderList(Model model) {
+		model.addAttribute("orderlist", orderService.findAllOrders());
+		return "order-list";
+	}
+	
+	
+	@GetMapping("/preorder-list")
+	public String goPreorderList(Model model) {
+		model.addAttribute("preorderlist", preorderService.findAllPreorders());
+		return "preorder-list";
+	}
+	
+	
+	@GetMapping("/review-list")
+	public String goReviewList(Model model) {
+		model.addAttribute("reviewlist", reviewService.findAllReviews());
+		return "review-list";
+	}
+	
+	@GetMapping("/user-list")
+	public String goUserList(Model model) {
+		model.addAttribute("userlist", userService.findAllUsers());
+		return "user-list";
+	}
+	
 }

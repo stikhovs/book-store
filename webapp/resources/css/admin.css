@@ -1,0 +1,31 @@
+#admin-menu {
+	padding-left: 0;
+}
+
+#admin-menu .nav {
+	height: 100%;
+	padding-top: 70px;
+	position: fixed;
+	width: 16.666667%;
+}
+
+#admin-menu .nav .nav-item .nav-link {
+	color: white;
+	font-size: 20px;
+}
+
+#admin-menu .nav .nav-item .nav-link.active {
+    background-color: #6e6e6e;
+}
+
+#admin-menu .nav .nav-item .nav-link:hover {
+	background-color: #181515;
+}
+
+#admin-menu .nav .nav-item .nav-link.active:hover {
+    background-color: #6e6e6e;
+}
+
+table tbody td {
+	vertical-align: middle !important;
+}

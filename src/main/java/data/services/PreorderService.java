@@ -26,4 +26,7 @@ public class PreorderService {
 		repository.saveAndFlush(preorder);
 	}
 	
+	public List<Preorder> findAllPreorders(){
+		return repository.findAll();
+	}
 }

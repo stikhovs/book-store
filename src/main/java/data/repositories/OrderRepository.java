@@ -11,5 +11,5 @@ import data.entities.Order;
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
 	public List<Order> findByUserId(long userId);
-	
+		
 }

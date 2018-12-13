@@ -31,7 +31,8 @@
 <link rel="shortcut icon"
 	href='<spring:url value="/resources/images/favicon.ico"/>'
 	type="image/x-icon">
-
+<link rel="stylesheet"
+	href='<spring:url value="/resources/css/admin.css"/>'>
 <style>
 	.form-block label {
 		font-weight: bold;
@@ -40,13 +41,32 @@
 
 </head>
 <body>
+<jsp:include page="../views/fragments/admin-header.jsp"></jsp:include>
 	<div class="container-fluid">
-		<jsp:include page="../views/fragments/header.jsp"></jsp:include>
-		<jsp:include page="../views/fragments/main-categories.jsp"></jsp:include>
-		<div class="container">
+		
+		<div class="row">
 
-			<h3 style="margin: 40px 0;">Редактирование книги<br>
-			</h3>
+			<div id="admin-menu" class="col-2">
+
+				<nav class="nav flex-column bg-dark" style="">
+					<li class="nav-item"><a class="nav-link active"
+						href='<spring:url value="/admin/book-list"/>'>Список книг</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href='<spring:url value="/admin/order-list"/>'>Список заказов</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href='<spring:url value="/admin/preorder-list"/>'>Список
+							предзаказов</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href='<spring:url value="/admin/review-list"/>'>Список отзывов</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href='<spring:url value="/admin/user-list"/>'>Список
+							пользователей</a></li>
+				</nav>
+
+			</div>
+			<div class="col-10" style="padding-top: 40px;">
+			
+			<h3 style="margin: 40px 0;">Редактирование книги</h3>
 
 
 			<div class="d-flex" style="margin-bottom: 30px;">
@@ -266,6 +286,8 @@
 
 				</div>
 			</div>
+			</div>
+
 
 
 
@@ -274,7 +296,7 @@
 		</div>
 
 
-		<jsp:include page="../views/fragments/footer.jsp"></jsp:include>
+	
 	</div>
 </body>
 </html>

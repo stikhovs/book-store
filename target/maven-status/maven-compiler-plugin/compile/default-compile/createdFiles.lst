@@ -1,6 +1,7 @@
 controllers\HomeController.class
 data\services\ReviewService.class
 components\BookAddComponent.class
+configuration\SecurityConfig.class
 controllers\RegistrationController.class
 data\entities\Preorder.class
 data\repositories\CartRepository.class
@@ -11,6 +12,7 @@ controllers\EditBookController.class
 controllers\SearchController.class
 components\RegisterUserComponent.class
 data\entities\Book.class
+configuration\SecurityInitializer.class
 data\entities\MainSliderBooksEntity.class
 controllers\PreorderController.class
 data\services\MainSliderBooksService.class

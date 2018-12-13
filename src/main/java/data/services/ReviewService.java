@@ -30,4 +30,8 @@ public class ReviewService {
 		User user = userService.findUserById(userId);
 		return user.getLastName() + " " + user.getFirstName();
 	}
+	
+	public List<Review> findAllReviews(){
+		return repository.findAll();
+	}
 }

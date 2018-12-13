@@ -18,4 +18,8 @@ public class OrderService {
 		return repository.findByUserId(userid);
 	}
 	
+	public List<Order> findAllOrders(){
+		return repository.findAll();
+	}
+	
 }

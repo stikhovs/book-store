@@ -34,5 +34,5 @@ public class UserService {
 	public User findUserByEmailAndPassword(String email, String password) {
 		return repository.findByEmailAndPassword(email, password);
 	}
-	
+		
 }
