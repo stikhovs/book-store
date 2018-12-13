@@ -61,7 +61,7 @@
 					<div class="top-slider__content">
 						<div class="container">
 							<div class="top-slider__subtitle">
-								<span style="color: ${slide.authorColor };">${slide.book.title.author}</span>
+								<span style="color: ${slide.authorColor };">${slide.book.author}</span>
 							</div>
 							<div class="top-slider__title">
 								<span style="color: ${slide.titleColor };">${slide.book.title}</span>
