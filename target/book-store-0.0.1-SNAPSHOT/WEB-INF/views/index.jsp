@@ -174,6 +174,10 @@
 			</div>
 		</div>
 
+		<c:forEach items="${mainSlider}" var="slide">
+			<p>${slide.book.title }</p>
+		</c:forEach>
+
 		<div id="newArrivals" class="slider-block">
 			<div class="title-block">
 				<h2 class="title-text">Новинки</h2>

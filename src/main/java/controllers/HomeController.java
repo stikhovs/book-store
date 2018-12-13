@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import com.amazonaws.services.s3.model.Bucket;
-
+import data.entities.MainSliderBooksEntity;
 import data.services.BookService;
+import data.services.MainSliderBooksService;
 import data.services.ReviewService;
 import data.services.UserService;
 
@@ -28,12 +27,20 @@ public class HomeController {
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	MainSliderBooksService mainSliderBooksService;
+	
 	@GetMapping("/")
 	public String goHome(Model model) {
 		model.addAttribute("books",service.getAll());
 		model.addAttribute("newArrivals",service.getNewArrivals());
 		model.addAttribute("bestsellers",service.getBestsellers());
 		model.addAttribute("preOrders", service.getPreOrders());
+		
+		List<MainSliderBooksEntity> slides = mainSliderBooksService.slideList();
+		Collections.reverse(slides);
+		
+		model.addAttribute("mainSlider", slides);
 				
 		return "index";
 	}

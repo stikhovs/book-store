@@ -5,17 +5,45 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import data.entities.Book;
+
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class BookEditComponent {
-	
+
 	private long bookId;
-	
+
+	private String title;
+
+	private String author;
+
+	private String description;
+
+	private boolean newArrival;
+
+	private boolean bestseller;
+
+	private String genreOne;
+
+	private String genreTwo;
+
+	private int pages;
+
+	private String publisher;
+
+	private int publishYear;
+
+	private String coverType;
+
 	private String isbn;
-	
+
+	private double price;
+
+	private boolean preOrder;
+
 	private MultipartFile bookCover;
 	
-	private String title;		
+	private String coverPath;
 
 	public long getBookId() {
 		return bookId;
@@ -23,6 +51,94 @@ public class BookEditComponent {
 
 	public void setBookId(long bookId) {
 		this.bookId = bookId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public boolean isNewArrival() {
+		return newArrival;
+	}
+
+	public void setNewArrival(boolean newArrival) {
+		this.newArrival = newArrival;
+	}
+
+	public boolean isBestseller() {
+		return bestseller;
+	}
+
+	public void setBestseller(boolean bestseller) {
+		this.bestseller = bestseller;
+	}
+
+	public String getGenreOne() {
+		return genreOne;
+	}
+
+	public void setGenreOne(String genreOne) {
+		this.genreOne = genreOne;
+	}
+
+	public String getGenreTwo() {
+		return genreTwo;
+	}
+
+	public void setGenreTwo(String genreTwo) {
+		this.genreTwo = genreTwo;
+	}
+
+	public int getPages() {
+		return pages;
+	}
+
+	public void setPages(int pages) {
+		this.pages = pages;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public int getPublishYear() {
+		return publishYear;
+	}
+
+	public void setPublishYear(int publishYear) {
+		this.publishYear = publishYear;
+	}
+
+	public String getCoverType() {
+		return coverType;
+	}
+
+	public void setCoverType(String coverType) {
+		this.coverType = coverType;
 	}
 
 	public String getIsbn() {
@@ -33,6 +149,22 @@ public class BookEditComponent {
 		this.isbn = isbn;
 	}
 
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public boolean isPreOrder() {
+		return preOrder;
+	}
+
+	public void setPreOrder(boolean preOrder) {
+		this.preOrder = preOrder;
+	}
+
 	public MultipartFile getBookCover() {
 		return bookCover;
 	}
@@ -41,13 +173,73 @@ public class BookEditComponent {
 		this.bookCover = bookCover;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getCoverPath() {
+		return coverPath;
 	}
 
-	public void setTitle(String title) {
+	public void setCoverPath(String coverPath) {
+		this.coverPath = coverPath;
+	}
+
+	
+
+	public BookEditComponent(long bookId, String title, String author, String description, boolean newArrival,
+			boolean bestseller, String genreOne, String genreTwo, int pages, String publisher, int publishYear,
+			String coverType, String isbn, double price, boolean preOrder, MultipartFile bookCover,
+			String coverPath) {
+		super();
+		this.bookId = bookId;
 		this.title = title;
-	}	
+		this.author = author;
+		this.description = description;
+		this.newArrival = newArrival;
+		this.bestseller = bestseller;
+		this.genreOne = genreOne;
+		this.genreTwo = genreTwo;
+		this.pages = pages;
+		this.publisher = publisher;
+		this.publishYear = publishYear;
+		this.coverType = coverType;
+		this.isbn = isbn;
+		this.price = price;
+		this.preOrder = preOrder;
+		this.bookCover = bookCover;
+		this.coverPath = coverPath;
+	}
+
+	public BookEditComponent() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "BookEditComponent [bookId=" + bookId + ", title=" + title + ", author=" + author + ", description="
+				+ description + ", newArrival=" + newArrival + ", bestseller=" + bestseller + ", genreOne=" + genreOne
+				+ ", genreTwo=" + genreTwo + ", pages=" + pages + ", publisher=" + publisher + ", publishYear="
+				+ publishYear + ", coverType=" + coverType + ", isbn=" + isbn + ", price=" + price + ", preOrder="
+				+ preOrder + ", bookCover=" + bookCover + ", coverPath=" + coverPath + "]";
+	}
+
+
 	
-	
+	public void copyFieldsFromBook(Book book) {
+		setBookId(book.getBookId());
+		setTitle(book.getTitle());
+		setAuthor(book.getAuthor());
+		setDescription(book.getDescription());
+		setNewArrival(book.isNewArrival());
+		setBestseller(book.isBestseller());
+		setGenreOne(book.getGenreOne());
+		setGenreTwo(book.getGenreTwo());
+		setPages(book.getPages());
+		setPublisher(book.getPublisher());
+		setPublishYear(book.getPublishYear());
+		setCoverType(book.getCoverType());
+		setIsbn(book.getIsbn());
+		setPrice(book.getPrice());
+		setPreOrder(book.isPreOrder());
+		setCoverPath(book.getCoverPath());
+	}
+
 }

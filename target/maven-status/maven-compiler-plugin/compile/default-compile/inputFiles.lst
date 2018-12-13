@@ -7,6 +7,7 @@ C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\config
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\entities\Book.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\services\BookService.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\repositories\BookRepository.java
+C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\entities\MainSliderBooksEntity.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\components\RegisterUserComponent.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\repositories\PreorderRepository.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\entities\Order.java
@@ -19,8 +20,11 @@ C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\s
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\components\BookEditComponent.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\customJspTags\SearchBooksInCartTag.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\OrderController.java
+C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\services\MainSliderBooksService.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\CatalogController.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\services\PreorderService.java
+C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\components\MainSliderBookComponent.java
+C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\AdminController.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\services\CategoriesService.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\PreorderController.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\repositories\UserRepository.java
@@ -32,7 +36,9 @@ C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\r
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\HomeController.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\RegistrationController.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\services\CartService.java
+C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\repositories\MainSliderBooksRepository.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\components\CurrentUserComponent.java
+C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\components\BookAddComponent.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\services\ReviewService.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\data\entities\User.java
 C:\Users\tihov\Desktop\SpringToolSuite-workspace\book-store\src\main\java\controllers\CartItemsAdvice.java
