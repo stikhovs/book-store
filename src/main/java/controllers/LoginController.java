@@ -114,7 +114,7 @@ public class LoginController {
 
 	}
 
-	@GetMapping("/logout")
+	@GetMapping("/mylogout")
 	public String logout(HttpServletResponse response) {
 		// Cookie cookie = new Cookie("loggedUser", "");
 

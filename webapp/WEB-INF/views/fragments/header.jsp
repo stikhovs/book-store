@@ -20,7 +20,7 @@
 					<c:when test="${user.email != null}">
 						<a href='<spring:url value="/personal-page"/>' class="white-color">Добро пожаловать,
 							${user.firstName }!</a>
-						<a href='<spring:url value="/logout"/>' class="logout">Выйти</a>
+						<a href='<spring:url value="/mylogout"/>' class="logout">Выйти</a>
 					</c:when>
 					<c:otherwise>
 						<a href="#" class="signIn" data-toggle="modal"
@@ -56,7 +56,7 @@
 						<c:when test="${user.email != null}">
 							<a href='<spring:url value="/personal-page"/>' class="white-color">Добро пожаловать,
 								${user.firstName }!</a>
-							<a href='<spring:url value="/logout"/>' class="logout">Выйти</a>
+							<a href='<spring:url value="/mylogout"/>' class="logout">Выйти</a>
 						</c:when>
 						<c:otherwise>
 							<a href="#" class="signIn" data-toggle="modal"
