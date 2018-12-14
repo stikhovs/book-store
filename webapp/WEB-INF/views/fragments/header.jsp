@@ -156,6 +156,9 @@
 							<form:password path="password" id="inputPassword" cssClass="form-control" placeholder="Пароль" required="true"/>
 							<form:errors path="password"/>
 						</div>
+						
+						<p style="text-align: center; margin: 20px 0 0 0; font-size: 16px;">Нет аккаунта? <a style="color: #149e33; padding-left: 10px;" href='<spring:url value="/registration"/>'> Зарегистрируйтесь!</a></p>
+						
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
