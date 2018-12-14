@@ -17,7 +17,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 	@Query(value = "SELECT * FROM book_store.books WHERE (title LIKE :search) OR (author LIKE :search) OR (isbn LIKE :search)", nativeQuery = true )
 	public List<Book> searchBooks(@Param("search") String search );
 	
-	public Page<Book> findByTitleContainingOrAuthorContainingOrIsbnContaining(String title, String author, String isbn, Pageable pageable);
+	public Page<Book> findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCaseOrIsbnContaining(String title, String author, String isbn, Pageable pageable);
 		
 	@Query(value = "SELECT DISTINCT book_store.books.Genre_One FROM book_store.books", nativeQuery = true )
 	public List<String> getDistinctGenreOne();

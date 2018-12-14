@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import data.entities.Book;
 import data.entities.Review;
 import data.entities.User;
 import data.repositories.ReviewRepository;
@@ -17,6 +18,9 @@ public class ReviewService {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	BookService bookService;
 	
 	public List<Review> findReviewByBookId(long bookId){
 		return repository.findByBookId(bookId);
@@ -34,4 +38,25 @@ public class ReviewService {
 	public List<Review> findAllReviews(){
 		return repository.findAll();
 	}
+	
+	public Review findReviewByReviewId(long reviewId) {
+		return repository.findByReviewId(reviewId);
+	}
+	
+	public Book findBookByReview(Review review) {
+		return bookService.getBookById(review.getBookId());
+	}
+	
+	public void saveReview(Review review) {
+		repository.saveAndFlush(review);
+	}
+	
+	public List<Review> getOnlyPermittedReviews(long bookId){
+		return repository.findByBookIdAndPermittedTrue(bookId);
+	}
+	
+	public List<Review> getAllReviewsAboutBookOfUser(long bookId, User user){
+		return repository.findByBookIdAndUser(bookId, user);
+	}
+	
 }

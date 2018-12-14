@@ -46,7 +46,7 @@ public class ReviewController {
 		review.setReviewDate(review.createDate());
 		review.setUser(user);
 		
-		review.setPermitted(true);
+		review.setPermitted(false);
 		
 		reviewRepository.saveAndFlush(review);
 		

@@ -15,7 +15,7 @@ public class SeachService {
 	BookRepository repository;
 	
 	public Page<Book> findBooks(String search, Pageable pageable){
-		return repository.findByTitleContainingOrAuthorContainingOrIsbnContaining(search, search, search, pageable);
+		return repository.findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCaseOrIsbnContaining(search, search, search, pageable);
 	}
 	
 }

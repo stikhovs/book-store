@@ -50,7 +50,8 @@ public class HomeController {
 		
 		model.addAttribute("bookInfo",service.getBookById(bookId));
 		
-		model.addAttribute("reviews", reviewService.findReviewByBookId(bookId));
+		//model.addAttribute("reviews", reviewService.findReviewByBookId(bookId));
+		model.addAttribute("reviews", reviewService.getOnlyPermittedReviews(bookId));
 		
 		
 		

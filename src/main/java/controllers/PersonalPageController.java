@@ -25,6 +25,7 @@ import data.repositories.ReviewRepository;
 import data.repositories.UserRepository;
 import data.services.BookService;
 import data.services.OrderService;
+import data.services.UserService;
 
 @Controller
 public class PersonalPageController {
@@ -50,26 +51,22 @@ public class PersonalPageController {
 	@Autowired
 	OrderService orderService;
 	
-	public List<Book> getBooksFromOrder(Order order){
-		List<Book> books = new LinkedList<>();
-		for(String bookId : order.getBooks().split("ID")) {
-			if(!bookId.equals("")) {
-				Book book = bookService.getBookById(Long.parseLong(bookId));
-				books.add(book);
-			}
-		}
-		return books;
-	}
+	@Autowired
+	UserService userService;
+	
+	
 	
 	@GetMapping("/personal-page")
 	public String goToPersonalPage(Model model) {
 		
-		List<Order> orders = orderService.findOrdersByUserId(currentUser.getUserId());
+		/*List<Order> orders = orderService.findOrdersByUserId(currentUser.getUserId());
 		Map<Order,List<Book>> orderAndBooksMap = new LinkedHashMap<>();
 		
 		orders.forEach(order -> {
-			orderAndBooksMap.put(order, getBooksFromOrder(order));
-		});
+			orderAndBooksMap.put(order, orderService.getBooksFromOrder(order));
+		});*/
+		
+		LinkedHashMap<Order,List<Book>> orderAndBooksMap = userService.getUserOrders(userService.findUserById(currentUser.getUserId()));
 		
 		model.addAttribute("orderAndBooksMap", orderAndBooksMap);
 		System.out.println(currentUser);

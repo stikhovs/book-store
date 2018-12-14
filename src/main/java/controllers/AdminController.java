@@ -2,6 +2,9 @@ package controllers;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +25,10 @@ import components.BookEditComponent;
 import components.MainSliderBookComponent;
 import data.entities.Book;
 import data.entities.MainSliderBooksEntity;
+import data.entities.Order;
+import data.entities.Preorder;
+import data.entities.Review;
+import data.entities.User;
 import data.repositories.BookRepository;
 import data.repositories.MainSliderBooksRepository;
 import data.services.BookService;
@@ -49,7 +56,7 @@ public class AdminController {
 
 	@Autowired
 	MainSliderBooksRepository mainSliderBooksRepository;
-
+	
 	@Autowired
 	MainSliderBooksService mainSliderBooksService;
 
@@ -188,6 +195,13 @@ public class AdminController {
 		model.addAttribute("slider", mainSliderBookComponent);
 		model.addAttribute("book", bookService.getBookById(bookId));
 
+		System.out.println("ВОООООТ: " + mainSliderBooksService.findSliderByBookId(bookId));
+		
+		if(mainSliderBooksService.findSliderByBookId(bookId) != null) {
+			model.addAttribute("alreadyInSlider", true);
+		}
+		else model.addAttribute("alreadyInSlider", false);
+		
 		return "add-slide";
 	}
 
@@ -231,7 +245,15 @@ public class AdminController {
 		return "redirect:/";
 	}
 
-	
+	@GetMapping("/book-list/edit/{id}/add-slide/delete")
+	public String deleteSlide(@ModelAttribute("slider") MainSliderBookComponent slider, @PathVariable("id") long bookId) {
+		
+		MainSliderBooksEntity sliderEntity = mainSliderBooksService.findSliderByBookId(bookId);
+		
+		mainSliderBooksRepository.delete(sliderEntity);
+		
+		return "redirect:/";
+	}
 	
 	
 	@GetMapping("/order-list")
@@ -241,11 +263,62 @@ public class AdminController {
 	}
 	
 	
+	@GetMapping("/order-list/edit/{orderId}")
+	public String showOrder(Model model, @PathVariable("orderId") long orderId) {
+		
+		Order order = orderService.findOrderById(orderId);
+		
+		model.addAttribute("order", order);
+		model.addAttribute("orderBooks", orderService.getBooksFromOrder(order));
+		
+		model.addAttribute("totalOrderPrice", orderService.getTotalOrderPrice(order));
+		
+		return "edit-order";
+	}
+	
+	@PostMapping("/order-list/edit/{orderId}")
+	public String changeOrder(@ModelAttribute("order") Order order, @PathVariable("orderId") long orderId) {
+		
+		Order changedOrder = orderService.findOrderById(orderId);
+		changedOrder.setFinished(order.isFinished());
+		
+		orderService.saveOrder(changedOrder);
+		
+		return "redirect:/admin/order-list";
+	}
+	
+	
+	
+	
+	
+	
+	
 	@GetMapping("/preorder-list")
 	public String goPreorderList(Model model) {
 		model.addAttribute("preorderlist", preorderService.findAllPreorders());
 		return "preorder-list";
 	}
+	
+	@GetMapping("/preorder-list/edit/{preorderId}")
+	public String showPreorder(Model model, @PathVariable("preorderId") long preorderId) {
+		
+		Preorder preorder = preorderService.findPreorderById(preorderId);
+		model.addAttribute("preorder", preorder);
+		model.addAttribute("preorderBook",preorderService.getBookFromPreorder(preorder));
+		model.addAttribute("preorderUser", preorderService.getUserFromPreorder(preorder));
+		
+		return "edit-preorder";
+	}
+	
+	@PostMapping("/preorder-list/edit/{preorderId}")
+	public String changePreorder(@ModelAttribute("preorder") Preorder preorder, @PathVariable("preorderId") long preorderId) {
+		
+		Preorder preorderToDelete = preorderService.findPreorderById(preorderId);
+		preorderService.deletePreorder(preorderToDelete);
+		
+		return "redirect:/admin/preorder-list";
+	}
+	
 	
 	
 	@GetMapping("/review-list")
@@ -254,10 +327,52 @@ public class AdminController {
 		return "review-list";
 	}
 	
+	@GetMapping("/review-list/edit/{reviewId}")
+	public String showReview(Model model, @PathVariable("reviewId") long reviewId) {
+		
+		Review review = reviewService.findReviewByReviewId(reviewId);
+		model.addAttribute("review", review);
+		model.addAttribute("reviewBook", reviewService.findBookByReview(review));
+		
+		return "edit-review";
+	}
+	
+	@PostMapping("/review-list/edit/{reviewId}")
+	public String changeReview(@ModelAttribute("review") Review review, @PathVariable("reviewId") long reviewId) {
+		
+		Review changedReview = reviewService.findReviewByReviewId(reviewId);
+		changedReview.setPermitted(review.isPermitted());
+		
+		reviewService.saveReview(changedReview);
+		
+		return "redirect:/admin/review-list";
+	}
+	
+	
 	@GetMapping("/user-list")
 	public String goUserList(Model model) {
 		model.addAttribute("userlist", userService.findAllUsers());
 		return "user-list";
+	}
+	
+	@GetMapping("/user-list/{userId}")
+	public String showUser(Model model, @PathVariable("userId") long userId) {
+		
+		User user = userService.findUserById(userId);
+		model.addAttribute("showUser", user);
+		model.addAttribute("userOrders", orderService.findOrdersByUserId(userId));
+		
+		LinkedHashMap<Order,List<Book>> orderAndBooksMap = userService.getUserOrders(user);
+		
+		model.addAttribute("orderAndBooksMap", orderAndBooksMap);
+		
+		LinkedHashMap<Preorder,Book> preorderAndBooksMap = userService.getUserPreorders(user);
+		model.addAttribute("preorderAndBooksMap",preorderAndBooksMap);
+		
+		LinkedHashMap<Book, List<Review>> bookAndreviewsMap = userService.getUserReviews(user);
+		model.addAttribute("bookAndreviewsMap", bookAndreviewsMap);
+		
+		return "edit-user";
 	}
 	
 }

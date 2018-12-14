@@ -144,9 +144,6 @@
 						</div>
 					</div>
 				</div>
-				<%-- <a
-					href='<spring:url value="/catalog/${bookInfo.bookId}/book-edit"/>'>
-					Редактировать книгу </a> --%>
 				<div class="book-description-and-reviews col-12">
 					<nav>
 						<div class="nav nav-tabs" id="nav-tab" role="tablist">

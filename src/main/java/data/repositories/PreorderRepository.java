@@ -14,4 +14,5 @@ public interface PreorderRepository extends JpaRepository<Preorder, Long> {
 	
 	public List<Preorder> findByUserId(long userId);
 	
+	public Preorder findByPreorderId(long preorderId);
 }
