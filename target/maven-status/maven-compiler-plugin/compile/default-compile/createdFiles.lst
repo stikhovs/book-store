@@ -6,6 +6,7 @@ controllers\RegistrationController.class
 data\entities\Preorder.class
 data\repositories\CartRepository.class
 components\FileBucketComponent.class
+controllers\ErrorController.class
 controllers\LoginController.class
 controllers\CartController.class
 controllers\EditBookController.class

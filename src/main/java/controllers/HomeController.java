@@ -31,7 +31,7 @@ public class HomeController {
 	MainSliderBooksService mainSliderBooksService;
 	
 	@GetMapping("/")
-	public String goHome(Model model) {
+	public String goHome(Model model) throws Exception {
 		model.addAttribute("books",service.getAll());
 		model.addAttribute("newArrivals",service.getNewArrivals());
 		model.addAttribute("bestsellers",service.getBestsellers());
@@ -50,10 +50,7 @@ public class HomeController {
 		
 		model.addAttribute("bookInfo",service.getBookById(bookId));
 		
-		//model.addAttribute("reviews", reviewService.findReviewByBookId(bookId));
-		model.addAttribute("reviews", reviewService.getOnlyPermittedReviews(bookId));
-		
-		
+		model.addAttribute("reviews", reviewService.getOnlyPermittedReviews(bookId));		
 		
 		return "book";
 	}
